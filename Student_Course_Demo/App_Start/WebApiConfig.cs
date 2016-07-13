@@ -21,6 +21,7 @@ namespace Student_Course_Demo
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+          
         }
     }
 }
