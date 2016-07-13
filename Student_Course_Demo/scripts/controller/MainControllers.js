@@ -19,14 +19,30 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
             //$scope.students.splice(id, 1);
         });
     };
-    $scope.create = function (name, data) {
+  /*  $scope.create = function (name, data) {
         $http.post("/api/" + name + "/", data).success(function (dataR) {
             //either this
             $scope.refresh();
             //or this "how to refresh"
             //$scope.students.splice(id, 1);
         });
-    };
+    };*/
+
+    $scope.Name = '';
+    $scope.Level = '';
+    $scope.submit = function (/*Des*/) {
+        if ($scope.Name && $scope.Level) {
+            Date = [{ Name: $scope.Name, Level: $scope.Level }];
+
+            $http.post("/api/Cours"/* + Des + */, Data).success(function (DataR) {
+                //either this
+                $scope.refresh();
+                //or this "how to refresh"
+                //$scope.students.splice(id, 1);
+            });
+
+        }
+    }
     
 });
 /*/ Simple GET request example:

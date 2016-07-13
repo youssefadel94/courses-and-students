@@ -32,7 +32,17 @@
                             </div>
                         </td>
                     </tr>
-                    <tr></tr>
+                    <tr>
+                        <td>{{course.Id}}</td>
+                        <td>{{course.Name}}</td>
+                        <td>{{course.Level}}</td>
+                        <td>
+                            <div class="btn btn-success" ng-click="delete('Cours',course.Id)">
+                                <span class="fa fa-save">
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -56,9 +66,10 @@
                         <td>{{student.Gender}}</td>
                         <td>{{student.Age}}</td>
                         <td>{{student.Year}}</td>
-                        <td><div class="btn btn-success" ng-click="delete('Students',student.Id)">
-                            <span class="fa fa-ban">
-                            </span>
+                        <td>
+                            <div class="btn btn-success" ng-click="delete('Students',student.Id)">
+                                <span class="fa fa-ban">
+                                </span>
                             </div>
                         </td>
                     </tr>
