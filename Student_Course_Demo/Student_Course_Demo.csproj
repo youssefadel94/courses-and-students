@@ -122,22 +122,27 @@
     <Content Include="DAL.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DAL.Context.cs</LastGenOutput>
-      <DependentUpon>DAL.edmx</DependentUpon>
+      <DependentUpon>Model_DAL.edmx</DependentUpon>
     </Content>
     <Content Include="DAL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DAL.edmx</DependentUpon>
+      <DependentUpon>Model_DAL.edmx</DependentUpon>
       <LastGenOutput>DAL.cs</LastGenOutput>
     </Content>
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="scripts\angular-mocks.js" />
-    <Content Include="scripts\angular-route.min.js" />
-    <Content Include="scripts\angular.min.js" />
-    <Content Include="scripts\app.js" />
-    <Content Include="scripts\bootstrap.min.css" />
-    <Content Include="scripts\MainControllers.js" />
+    <Content Include="scripts\angular\angular-mocks.js" />
+    <Content Include="scripts\angular\angular-route.min.js" />
+    <Content Include="scripts\angular\angular.min.js" />
+    <Content Include="scripts\app\app.js" />
+    <Content Include="style\bootstrap\bootstrap.min.css" />
+    <Content Include="scripts\controllers\MainControllers.js" />
+    <Content Include="style\font awesome\font-awesome.css" />
+    <Content Include="style\font awesome\font-awesome.min.css" />
+    <Content Include="style\style.css" />
+    <Content Include="Views\main.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -157,10 +162,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DAL.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL.Designer.cs">
+    <Compile Include="Model_DAL.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DAL.edmx</DependentUpon>
+      <DependentUpon>Model_DAL.edmx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -175,13 +180,18 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="DAL.edmx">
+    <EntityDeploy Include="Model_DAL.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DAL.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model_DAL.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DAL.edmx.diagram">
-      <DependentUpon>DAL.edmx</DependentUpon>
+    <Content Include="Model_DAL.edmx.diagram">
+      <DependentUpon>Model_DAL.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -190,14 +200,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
