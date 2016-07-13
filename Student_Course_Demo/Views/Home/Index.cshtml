@@ -5,19 +5,19 @@
 <div class="jumbotron">
     <h1>this is a student courser demo</h1>
     <p class="lead">in this demop you will be able to view edit add and assign students to courses.</p>
-    </div>
+</div>
 
 <div class="row" ng-app="mainApp">
 
     <div class="row" ng-controller="MainController">
-        <div class="col-md-4" >
+        <div class="col-md-4">
             <table>
                 <thead>
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
                         <th>Level</th>
-
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +25,12 @@
                         <td>{{course.Id}}</td>
                         <td>{{course.Name}}</td>
                         <td>{{course.Level}}</td>
+                        <td>
+                            <div class="btn btn-success" ng-click="delete('Cours',course.Id)">
+                                <span class="fa fa-ban">
+                                </span>
+                            </div>
+                        </td>
                     </tr>
                     <tr></tr>
                 </tbody>
@@ -40,7 +46,7 @@
                         <th>Gender</th>
                         <th>Age</th>
                         <th>Year</th>
-
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,7 +56,11 @@
                         <td>{{student.Gender}}</td>
                         <td>{{student.Age}}</td>
                         <td>{{student.Year}}</td>
-
+                        <td><div class="btn btn-success" ng-click="delete('Students',student.Id)">
+                            <span class="fa fa-ban">
+                            </span>
+                            </div>
+                        </td>
                     </tr>
                     <tr></tr>
                 </tbody>
