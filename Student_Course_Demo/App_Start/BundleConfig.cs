@@ -28,7 +28,10 @@ namespace Student_Course_Demo
                     "~/Scripts/app.js"));
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                    "~/Scripts/angular/angular.min.js",
-                   "~/Scripts/angular/angular - route.min.js"));
+                   "~/Scripts/angular/angular-route.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/angularm").Include(
+                   "~/Scripts/angular/angular-mocks.js"));
+            
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap/bootstrap.css",
                       "~/Content/site.css"));
