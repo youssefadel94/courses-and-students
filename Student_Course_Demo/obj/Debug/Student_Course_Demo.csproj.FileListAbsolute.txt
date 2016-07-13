@@ -42,3 +42,4 @@ c:\users\youssef.hassanein\documents\visual studio 2015\Projects\Student_Course_
 c:\users\youssef.hassanein\documents\visual studio 2015\Projects\Student_Course_Demo\Student_Course_Demo\bin\System.Web.Http.WebHost.xml
 c:\users\youssef.hassanein\documents\visual studio 2015\Projects\Student_Course_Demo\Student_Course_Demo\obj\Debug\Student_Course_Demo.dll
 c:\users\youssef.hassanein\documents\visual studio 2015\Projects\Student_Course_Demo\Student_Course_Demo\obj\Debug\Student_Course_Demo.pdb
+c:\users\youssef.hassanein\documents\visual studio 2015\Projects\Student_Course_Demo\Student_Course_Demo\obj\Debug\Student_Course_Demo.csprojResolveAssemblyReference.cache
