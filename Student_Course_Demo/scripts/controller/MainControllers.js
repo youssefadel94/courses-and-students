@@ -15,7 +15,15 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
         $http.delete("/api/"+name+"/" + id).success(function (data) {
             //either this
             $scope.refresh();
-            //or this
+            //or this "how to refresh"
+            //$scope.students.splice(id, 1);
+        });
+    };
+    $scope.create = function (name, data) {
+        $http.post("/api/" + name + "/", data).success(function (dataR) {
+            //either this
+            $scope.refresh();
+            //or this "how to refresh"
             //$scope.students.splice(id, 1);
         });
     };
