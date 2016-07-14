@@ -23,63 +23,100 @@
                 <p>enter the id of the course you want to view or edit</p><br />
             </div>
         </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <table style="width: 100%;
+        <div class="row">
+            <div class="col-md-6">
+                <table style="width: 100%;
                        margin: auto;
                        text-align: center;">
-                        <thead>
-                            <tr>
-                                <th style="text-align: center;">Id</th>
-                                <th style="text-align: center;">Name</th>
-                                <th style="text-align: center;">Level</th>
-                                <th style="text-align: center;">Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="course in courses">
-                                <td>{{course.Id}}</td>
-                                <td>{{course.Name}}</td>
-                                <td>{{course.Level}}</td>
-                                <td>
-                                    <div class="btn btn-success" ng-click="delete('Cours',course.Id)">
-                                        <span class="fa fa-ban">
-                                        </span>
-                                    </div>
-                                </td>
-                            </tr>
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Id</th>
+                            <th style="text-align: center;">Name</th>
+                            <th style="text-align: center;">Level</th>
+                            <th style="text-align: center;">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="course in courses">
+                            <td>{{course.Id}}</td>
+                            <td>{{course.Name}}</td>
+                            <td>{{course.Level}}</td>
+                            <td>
+                                <div class="btn btn-success" ng-click="delete('Cours',course.Id)">
+                                    <span class="fa fa-ban">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
 
-                        </tbody>
-                    </table>
-                    <form style="text-align: center;" ng-submit="submit('Cours')">
+                    </tbody>
+                </table>
+                <form style="text-align: center;" ng-submit="submit('Cours')">
 
-                        <!--<input type="text" ng-model="Id" name="Id"/>-->
-                        <input required placeholder="Name" type="text" ng-model="CName" name="Name" />
-                        <input required placeholder="Level" type="text" ng-model="Level" name="Level" />
+                    <!--<input type="text" ng-model="Id" name="Id"/>-->
+                    <input required placeholder="Name" type="text" ng-model="CName" name="Name" />
+                    <input required placeholder="Level" type="text" ng-model="Level" name="Level" />
 
-                        <input type="submit" class="btn btn-success" id="submit" value="Add course" />
+                    <input type="submit" class="btn btn-success" id="submit" value="Add course" />
 
-                    </form>
-                </div>
-                <div class="col-md-6" style="text-align: center;">
-                    
-                    <form style="text-align: center;" class="row" ng-submit="submit('VCours')">
-                        
-                        <!--<input type="text" ng-model="Id" name="Id"/>-->
-                        <input required placeholder="Id" type="text" ng-model="CId" name="Id" />
-                        <input type="submit" class="btn btn-success" id="submit" value="View or Edit Course" />
-                        
-                    </form>
-                    <br /><hr />
+                </form>
+            </div>
+            <div class="col-md-6" style="text-align: center;">
+
+                <form style="text-align: center;" class="row" ng-submit="submit('VCours')">
+
+                    <!--<input type="text" ng-model="Id" name="Id"/>-->
+                    <input required placeholder="Id" type="text" ng-model="CId" name="Id" />
+                    <input type="submit" class="btn btn-success" id="submit" value="View or Edit Course" />
+
+                </form>
+                <br /><hr />
+                <div class="row" ng-if="showC">
+                    <div class="row">
                     <form style="text-align: center;" class="row" ng-submit="submit('SCours')">
-                        
+
                         <!--<input type="text" ng-model="Id" name="Id"/>-->
                         <input required placeholder="Name" type="text" ng-model="SCName" name="Name" />
                         <input required placeholder="Level" type="text" ng-model="SLevel" name="Level" />
                         <input type="submit" class="btn btn-success" id="submit" value="Update course" />
                     </form>
-                </div>
+                        </div>
+                    <div class="row">
+                        <h5 style="text-align:center;">Students taking this course</h5>
+                        <table style="width: 100%;
+                       margin: auto;
+                       text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Id</th>
+                                    <th style="text-align: center;">Name</th>
+                                    <th style="text-align: center;">Gender</th>
+                                    <th style="text-align: center;">Age</th>
+                                    <th style="text-align: center;">Year</th>
+                                    <th style="text-align: center;">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="Sstudent in Sstudents">
+                                    <td>{{Sstudent.Id}}</td>
+                                    <td>{{Sstudent.Name}}</td>
+                                    <td>{{Sstudent.Gender}}</td>
+                                    <td>{{Sstudent.Age}}</td>
+                                    <td>{{Sstudent.Year}}</td>
+                                    <td>
+                                        <div class="btn btn-success" ng-click="delete('Students',student.Id)">
+                                            <span class="fa fa-ban">
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
             </div>
+        </div>
         <div class="row">
             <div class="col-md-6" style="text-align:center;">
                 <br />
@@ -146,14 +183,47 @@
 
                 </form>
                 <br /><hr />
-                <form style="text-align: center;" class="row" ng-submit="submit('SStudents')">
-                    <!--<input type="text" ng-model="Id" name="Id"/>-->
-                    <input required placeholder="Name" type="text" ng-model="SSName" name="Name" value="test" />
-                    <input required placeholder="Gender" type="text" ng-model="SGender" name="Gender" />
-                    <input required placeholder="Age" type="text" ng-model="SAge" name="Age" />
-                    <input required placeholder="Year" type="text" ng-model="SYear" name="Year" />
-                    <input type="submit" class="btn btn-success" id="submit" value="Update student" />
-                </form>
+                <div class="row" ng-if="showS">
+                    <div class="row">
+                        <form style="text-align: center;" class="row" ng-submit="submit('SStudents')">
+                            <!--<input type="text" ng-model="Id" name="Id"/>-->
+                            <input required placeholder="Name" type="text" ng-model="SSName" name="Name" value="test" />
+                            <input required placeholder="Gender" type="text" ng-model="SGender" name="Gender" />
+                            <input required placeholder="Age" type="text" ng-model="SAge" name="Age" />
+                            <input required placeholder="Year" type="text" ng-model="SYear" name="Year" />
+                            <input type="submit" class="btn btn-success" id="submit" value="Update student" />
+                        </form>
+                        </div>
+                    <div class="row">
+                        <h5 style="text-align:center;">Courses this student is taking</h5>
+                        <table style="width: 100%;
+                       margin: auto;
+                       text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Id</th>
+                                    <th style="text-align: center;">Name</th>
+                                    <th style="text-align: center;">Level</th>
+                                    <th style="text-align: center;">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="Ccourse in Ccourses">
+                                    <td>{{Ccourse.Id}}</td>
+                                    <td>{{Ccourse.Name}}</td>
+                                    <td>{{Ccourse.Level}}</td>
+                                    <td>
+                                        <div class="btn btn-success" ng-click="delete('Cours',course.Id)">
+                                            <span class="fa fa-ban">
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
             </div>
 
 

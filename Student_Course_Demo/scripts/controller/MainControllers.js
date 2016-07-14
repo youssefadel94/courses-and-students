@@ -60,6 +60,8 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
     $scope.SAge = '';
     $scope.Year = '';
     $scope.SYear = '';
+    $scope.showC = false;
+    $scope.showS = false;
 
     $scope.submit = function (Des) {
         if (Des == "Cours") {
@@ -90,6 +92,9 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
                     $scope.Vcourse = response.data;
                     $scope.SCName = $scope.Vcourse.Name;
                     $scope.SLevel = $scope.Vcourse.Level;
+                    $scope.showC = true;
+                    $scope.Sstudents = $scope.Vcourse.Students;
+                    
                 });
 
             }
@@ -124,6 +129,8 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
                     $scope.SGender = $scope.Vstudent.Gender;
                     $scope.SAge = $scope.Vstudent.Age;
                     $scope.SYear = $scope.Vstudent.Year;
+                    $scope.Ccourses = $scope.Vstudent.Courses;
+                    $scope.showS = true;
                 });
 
             }
