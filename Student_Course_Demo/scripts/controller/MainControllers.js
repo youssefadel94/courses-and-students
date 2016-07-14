@@ -10,7 +10,7 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
             $scope.students = response.data;
 
         });
-    var Refresh = function(Des){
+    var Refresh = function (Des) {
         if (Des == "Students") {
             $http.get("/api/Students")
    .then(function (response) {
@@ -47,11 +47,19 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
       };*/
 
     $scope.CName = '';
+    $scope.SCName = '';
+    $scope.CId = '';
+    $scope.SId = '';
     $scope.SName = '';
+    $scope.SSName = '';
     $scope.Level = '';
+    $scope.SLevel = '';
     $scope.Gender = '';
+    $scope.SGender = '';
     $scope.Age = '';
+    $scope.SAge = '';
     $scope.Year = '';
+    $scope.SYear = '';
 
     $scope.submit = function (Des) {
         if (Des == "Cours") {
@@ -64,18 +72,63 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
 
             }
         }
-        else {
-            if (Des == "Students") {
-                if ($scope.SName && $scope.Gender && $scope.Year && $scope.Age) {
-                    var Data = { "Name": $scope.SName, "Gender": $scope.Gender, "Age": $scope.Age, "Year": $scope.Year };
-                    var jData = JSON.stringify(Data);
-                    $http.post("/api/" + Des, jData, []).success(function (DataR) {
-                        Refresh(Des);
-                    });
+        if (Des == "SCours") {
+            Des = "Cours";
+            if ($scope.SCName && $scope.SLevel && $scope.Vcourse.Id) {
+                var Data = {"Id": $scope.Vcourse.Id, "Name": $scope.SCName, "Level": $scope.SLevel };
+                var jData = JSON.stringify(Data);
+                $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
+                    Refresh(Des);
+                });
 
-                }
             }
         }
+        if (Des == "VCours") {
+            Des = "Cours";
+            if ($scope.CId) {
+                $http.get("/api/"+ Des + "/" + $scope.CId).then(function (response) {
+                    $scope.Vcourse = response.data;
+                    $scope.SCName = $scope.Vcourse.Name;
+                    $scope.SLevel = $scope.Vcourse.Level;
+                });
+
+            }
+        }
+        if (Des == "Students") {
+            if ($scope.SName && $scope.Gender && $scope.Year && $scope.Age) {
+                var Data = { "Name": $scope.SName, "Gender": $scope.Gender, "Age": $scope.Age, "Year": $scope.Year };
+                var jData = JSON.stringify(Data);
+                $http.post("/api/" + Des, jData, []).success(function (DataR) {
+                    Refresh(Des);
+                });
+
+            }
+        }
+        if (Des == "SStudents") {
+            Des = "Students";
+            if ($scope.SSName && $scope.SGender && $scope.SYear && $scope.SAge && $scope.Vstudent.Id) {
+                var Data = { "Id": $scope.Vstudent.Id, "Name": $scope.SSName, "Gender": $scope.SGender, "Age": $scope.SAge, "Year": $scope.SYear };
+                var jData = JSON.stringify(Data);
+                $http.put("/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).success(function (DataR) {
+                    Refresh(Des);
+                });
+
+            }
+        }
+        if (Des == "VStudents") {
+            Des = "Students";
+            if ($scope.SId ) {
+                $http.get("/api/"+ Des + "/" + $scope.SId).then(function (response) {
+                    $scope.Vstudent = response.data;
+                    $scope.SSName = $scope.Vstudent.Name;
+                    $scope.SGender = $scope.Vstudent.Gender;
+                    $scope.SAge = $scope.Vstudent.Age;
+                    $scope.SYear = $scope.Vstudent.Year;
+                });
+
+            }
+        }
+
     }
 
 });
