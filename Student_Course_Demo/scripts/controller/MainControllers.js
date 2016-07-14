@@ -18,15 +18,15 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
 
    });
         }
-        else {
-            if (Des == "Cours") {
-                $http.get("/api/Cours")
-     .then(function (response) {
-         $scope.courses = response.data;
 
-     });
-            }
+        if (Des == "Cours") {
+            $http.get("/api/Cours")
+ .then(function (response) {
+     $scope.courses = response.data;
+
+ });
         }
+
     }
     $scope.delete = function (name, id) {
         $http.delete("/api/" + name + "/" + id).success(function (data) {
@@ -77,7 +77,7 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
         if (Des == "SCours") {
             Des = "Cours";
             if ($scope.SCName && $scope.SLevel && $scope.Vcourse.Id) {
-                var Data = {"Id": $scope.Vcourse.Id, "Name": $scope.SCName, "Level": $scope.SLevel };
+                var Data = { "Id": $scope.Vcourse.Id, "Name": $scope.SCName, "Level": $scope.SLevel };
                 var jData = JSON.stringify(Data);
                 $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
                     Refresh(Des);
@@ -88,13 +88,13 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
         if (Des == "VCours") {
             Des = "Cours";
             if ($scope.CId) {
-                $http.get("/api/"+ Des + "/" + $scope.CId).then(function (response) {
+                $http.get("/api/" + Des + "/" + $scope.CId).then(function (response) {
                     $scope.Vcourse = response.data;
                     $scope.SCName = $scope.Vcourse.Name;
                     $scope.SLevel = $scope.Vcourse.Level;
                     $scope.showC = true;
                     $scope.Sstudents = $scope.Vcourse.Students;
-                    
+
                 });
 
             }
@@ -122,8 +122,8 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
         }
         if (Des == "VStudents") {
             Des = "Students";
-            if ($scope.SId ) {
-                $http.get("/api/"+ Des + "/" + $scope.SId).then(function (response) {
+            if ($scope.SId) {
+                $http.get("/api/" + Des + "/" + $scope.SId).then(function (response) {
                     $scope.Vstudent = response.data;
                     $scope.SSName = $scope.Vstudent.Name;
                     $scope.SGender = $scope.Vstudent.Gender;
