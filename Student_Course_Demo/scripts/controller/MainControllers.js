@@ -50,15 +50,16 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
     $scope.Age = '';
     $scope.Year = '';
 
-    $scope.submitCourse = function (/*Des*/) {
+    $scope.submit = function (Des) {
         if ($scope.Name && $scope.Level) {
             Date = [{ Name: $scope.Name, Level: $scope.Level }];
 
-            $http.post("/api/Cours"/* + Des + */, Data).success(function (DataR) {
-                //either this
-                $scope.refresh();
-                //or this "how to refresh"
-                //$scope.students.splice(id, 1);
+            $http.post("/api/" + Des , Data).success(function (DataR) {
+                $http.get("/api/Cours")
+          .then(function (response) {
+              $scope.courses = response.data;
+
+          });
             });
 
         }
