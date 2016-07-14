@@ -10,7 +10,12 @@
 <div class="row" ng-app="mainApp">
 
     <div class="row" ng-controller="MainController">
-        <div class="col-md-4">
+
+        <div class="row">
+            <br />
+        <h2>Courses</h2>
+           <hr/><br/>
+        <div class="col-md-6">
             <table>
                 <thead>
                     <tr>
@@ -33,21 +38,25 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>{{course.Id}}</td>
-                        <td>{{course.Name}}</td>
-                        <td>{{course.Level}}</td>
+                        <td><!--<input type="text" ng-model="Id" name="Id"/>--></td>
+                        <td><input type="text" ng-model="Name" name="Name" /></td>
+                        <td><input type="text" ng-model="Level" name="Level" /></td>
                         <td>
-                            <div class="btn btn-success" ng-click="delete('Cours',course.Id)">
-                                <span class="fa fa-save">
-                                </span>
-                            </div>
+                            <input type="submit" class="btn btn-success" id="submitCourse" value="Add course" />
+
+
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="col-md-4">
+    </div>
+        <div class="row">
+            <br />
+            <h2>Students</h2>
+            <hr /><br />
+        <div class="col-md-6">
             <table>
                 <thead>
                     <tr>
@@ -73,9 +82,25 @@
                             </div>
                         </td>
                     </tr>
-                    <tr></tr>
+                    <tr>
+                        <td><!--<input type="text" ng-model="Id" name="Id"/>--></td>
+                        <td><input type="text" ng-model="Name" name="Name" /></td>
+                        <td><input type="text" ng-model="Gender" name="Gender" /></td>
+                        <td><input type="text" ng-model="Age" name="Age" /></td>
+                        <td><input type="text" ng-model="Year" name="Year" /></td>
+                        <td>
+                            <input type="submit" class="btn btn-success" id="submitStudent" value="Add student" />
+
+
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
+
+    </div>
+
+
 </div>

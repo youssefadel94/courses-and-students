@@ -14,10 +14,26 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
     $scope.delete = function (name,id) {
         $http.delete("/api/"+name+"/" + id).success(function (data) {
             //either this
-            $scope.refresh();
+            //$scope.refresh();
             //or this "how to refresh"
             //$scope.students.splice(id, 1);
-        });
+            if (name == "Students") {
+                $http.get("/api/Students")
+       .then(function (response) {
+           $scope.students = response.data;
+
+       });
+            }
+            else {
+                if (name == "Cours") {
+                    $http.get("/api/Cours")
+         .then(function (response) {
+             $scope.courses = response.data;
+
+         });
+                }
+            }
+            });
     };
   /*  $scope.create = function (name, data) {
         $http.post("/api/" + name + "/", data).success(function (dataR) {
@@ -30,7 +46,11 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
 
     $scope.Name = '';
     $scope.Level = '';
-    $scope.submit = function (/*Des*/) {
+    $scope.Gender = '';
+    $scope.Age = '';
+    $scope.Year = '';
+
+    $scope.submitCourse = function (/*Des*/) {
         if ($scope.Name && $scope.Level) {
             Date = [{ Name: $scope.Name, Level: $scope.Level }];
 
