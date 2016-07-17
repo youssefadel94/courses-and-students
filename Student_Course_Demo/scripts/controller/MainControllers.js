@@ -28,12 +28,12 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
         }
 
     }
-    $scope.delete = function (name, id) {
-        $http.delete("/api/" + name + "/" + id).success(function (data) {
+    $scope.delete = function (name, Id) {
+        $http.delete("/api/" + name + "/" + Id).success(function (data) {
             //either this
             //$scope.refresh();
             //or this "how to refresh"
-            //$scope.students.splice(id, 1);
+            //$scope.students.splice(Id, 1);
             Refresh(name);
         });
     };
@@ -42,7 +42,7 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
               //either this
               $scope.refresh();
               //or this "how to refresh"
-              //$scope.students.splice(id, 1);
+              //$scope.students.splice(Id, 1);
           });
       };*/
 
@@ -91,9 +91,11 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
                 Des = "Cours";
                 if ($scope.SCName && $scope.SLevel) {
                    // $scope.students[$scope.studenttoCours - 1].Courses[$scope.students[$scope.studenttoCours].Courses.length] = $scope.Vcourse;
-                    for (i = $scope.students.length ; i>-1;i--){
-                    if($scope.students[i].id = $scope.studenttoCours){
-                        $scope.studenttoadd = $scope.students[i];
+                    
+                    for (i = $scope.students.length ; i > 0 ; i--) {
+                        var a = $scope.students[i-1].Id;
+                        if (a == $scope.studenttoCours) {
+                        $scope.studenttoadd = $scope.students[i-1];
                     }
             }
                     $scope.Vcourse.Students[$scope.Vcourse.Students.length] = $scope.studenttoadd;
@@ -145,9 +147,9 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
             Des = "Students";
             if ($scope.SId) {
                 // $scope.students[$scope.studenttoCours - 1].Courses[$scope.students[$scope.studenttoCours].Courses.length] = $scope.Vcourse;
-                for (i = $scope.courses.length ; i > -1; i--) {
-                    if ($scope.courses[i].id = $scope.coursetoStudent) {
-                        $scope.studenttoadd = $scope.courses[i];
+                for (i = $scope.courses.length ; i > 0; i--) {
+                    if ($scope.courses[i-1].Id == $scope.coursetoStudent) {
+                        $scope.studenttoadd = $scope.courses[i-1];
                     }
                 }
                 $scope.Vstudent.Courses[$scope.Vstudent.Courses.length] = $scope.studenttoadd;
