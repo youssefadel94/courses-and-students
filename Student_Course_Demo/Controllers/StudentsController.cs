@@ -55,22 +55,10 @@ namespace Student_Course_Demo.Controllers
 
             foreach (var course in student.Courses)
             {
-                bool found = false;
-                foreach (var dbS in dbStudent.Courses)
-                {
-                    if (course.Id == dbS.Id)
-                    {
-                        found = true;
-                        break;
-                    }
-                }
-
-                if (!found)
-                {
-                    var s = db.Courses.FirstOrDefault(o => o.Id == course.Id);
-
-                    dbStudent.Courses.Add(s);
-                }
+                var s = db.Courses.FirstOrDefault(o => o.Id == course.Id);
+                dbStudent.Courses.Clear() ;
+                dbStudent.Courses.Add(s);
+                
             }
 
          

@@ -29,6 +29,63 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
 
     }
     $scope.delete = function (name, Id) {
+
+        if (name == "StudentofCours") {
+            Des = "Cours";
+            if ($scope.CId) {
+                // $scope.students[$scope.studenttoCours - 1].Courses[$scope.students[$scope.studenttoCours].Courses.length] = $scope.Vcourse;
+
+                for (i = $scope.students.length ; i > 0 ; i--) {
+                    var a = $scope.students[i - 1].Id;
+                    if (a == Id) {
+                        $scope.studenttoadd = $scope.students[i - 1];
+                    }
+                }
+                for (i = $scope.Vcourse.Students.length ; i > 0 ; i--) {
+                    var a = $scope.Vcourse.Students[i - 1].Id;
+                    if (a == Id) {
+                        $scope.Vcourse.Students.splice(i - 1,1);
+                    }
+                }
+               
+                var jData = $scope.Vcourse;
+
+                $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
+                    Refresh(Des);
+                });
+
+            }
+
+        }
+
+        if (name == "CoursofStudent") { Des = "Cours";
+            if ($scope.SId) {
+                // $scope.students[$scope.studenttoCours - 1].Courses[$scope.students[$scope.studenttoCours].Courses.length] = $scope.Vcourse;
+
+                for (i = $scope.courses.length ; i > 0 ; i--) {
+                    var a = $scope.courses[i - 1].Id;
+                    if (a == Id) {
+                        $scope.studenttoadd = $scope.courses[i - 1];
+                    }
+                }
+                for (i = $scope.Vstudent.Courses.length ; i > 0 ; i--) {
+                    var a = $scope.Vstudent.Courses[i - 1].Id;
+                    if (a == Id) {
+                        $scope.Vstudent.Courses.splice(i - 1,1);
+                    }
+                }
+               
+                var jData = $scope.Vstudent;
+
+                $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
+                    Refresh(Des);
+                });
+
+            }
+
+        }
+       
+        if (name == "Students" || name == "Cours") {
         $http.delete("/api/" + name + "/" + Id).success(function (data) {
             //either this
             //$scope.refresh();
@@ -36,7 +93,9 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
             //$scope.students.splice(Id, 1);
             Refresh(name);
         });
+        }
     };
+
     /*  $scope.create = function (name, data) {
           $http.post("/api/" + name + "/", data).success(function (dataR) {
               //either this
