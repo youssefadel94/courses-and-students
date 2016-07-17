@@ -58,7 +58,8 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
 
         }
 
-        if (name == "CoursofStudent") { Des = "Cours";
+        if (name == "CoursofStudent") {
+            Des = "Students";
             if ($scope.SId) {
                 // $scope.students[$scope.studenttoCours - 1].Courses[$scope.students[$scope.studenttoCours].Courses.length] = $scope.Vcourse;
 
@@ -77,7 +78,7 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
                
                 var jData = $scope.Vstudent;
 
-                $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
+                $http.put("/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).success(function (DataR) {
                     Refresh(Des);
                 });
 

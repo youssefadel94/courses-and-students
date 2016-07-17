@@ -52,11 +52,15 @@ namespace Student_Course_Demo.Controllers
 
             var dbStudent = db.Students.FirstOrDefault(o => o.Id == student.Id);
 
-
+            var once = true;
             foreach (var course in student.Courses)
             {
                 var s = db.Courses.FirstOrDefault(o => o.Id == course.Id);
-                dbStudent.Courses.Clear() ;
+                if (once)
+                {
+                    dbStudent.Courses.Clear();
+                    once = false;
+                }
                 dbStudent.Courses.Add(s);
                 
             }

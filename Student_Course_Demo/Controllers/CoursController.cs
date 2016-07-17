@@ -50,12 +50,16 @@ namespace Student_Course_Demo.Controllers
                 return BadRequest();
             }
             var dbCours = db.Courses.FirstOrDefault(o => o.Id == cours.Id);
-            
 
+            var once = true;
             foreach(var student in cours.Students)
             {
+
                 var s = db.Students.FirstOrDefault(o => o.Id == student.Id);
+                if (once) { 
                 dbCours.Students.Clear();
+                    once = false;
+                }
                 dbCours.Students.Add(s);
                 
             }
