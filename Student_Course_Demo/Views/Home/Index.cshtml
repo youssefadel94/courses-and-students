@@ -71,11 +71,11 @@
 
                 </form>
                 <br /><hr />
-                <div class="row" ng-if="showC">
+                <div class="row" >
                     <div class="row">
                     <form style="text-align: center;" class="row" ng-submit="submit('SCours')">
 
-                        <!--<input type="text" ng-model="Id" name="Id"/>-->
+                        <!-- ng-if="showC" <input type="text" ng-model="Id" name="Id"/>-->
                         <input required placeholder="Name" type="text" ng-model="SCName" name="Name" />
                         <input required placeholder="Level" type="text" ng-model="SLevel" name="Level" />
                         <input type="submit" class="btn btn-success" id="submit" value="Update course" />
@@ -113,6 +113,16 @@
 
                             </tbody>
                         </table>
+                        <form style="text-align: center;" class="row" ng-submit="submit('studenttoCours')">
+
+                            <!--<input type="text" ng-model="Id" name="Id"/>-->
+                            <input required placeholder="id" type="text" ng-model="studenttoCours" name="Name"  >
+                             
+                                <!--<input type="text" ng-model="Id" name="Id"/>  <option ng-repeat="studentsofCours in studentsofCourses" value="{{studentsofCours.Id}}">{{studentsofCours.Name}}</option>
+                             </select>-->
+                           
+                            <input type="submit" class="btn btn-success" id="submit" value="add Student" />
+                        </form>
                     </div>
                     </div>
             </div>
@@ -165,9 +175,9 @@
                 <form style="text-align: center;" class="row" ng-submit="submit('Students')">
                     <!--<input type="text" ng-model="Id" name="Id"/>-->
                     <input required placeholder="Name" type="text" ng-model="SName" name="Name" />
-                    <input required placeholder="Gender" type="text" ng-model="Gender" name="Gender" />
-                    <input required placeholder="Age" type="text" ng-model="Age" name="Age" />
-                    <input required placeholder="Year" type="text" ng-model="Year" name="Year" />
+                    <input required placeholder="Gender" type="text" ng-model="SGender" name="Gender" />
+                    <input required placeholder="Age" type="text" ng-model="SAge" name="Age" />
+                    <input required placeholder="Year" type="text" ng-model="SYear" name="Year" />
                     <input type="submit" class="btn btn-success" id="submit" value="Add student" />
 
                 </form>
@@ -183,10 +193,10 @@
 
                 </form>
                 <br /><hr />
-                <div class="row" ng-if="showS">
+                <div class="row" >
                     <div class="row">
                         <form style="text-align: center;" class="row" ng-submit="submit('SStudents')">
-                            <!--<input type="text" ng-model="Id" name="Id"/>-->
+                            <!-- ng-if="showS"<input type="text" ng-model="Id" name="Id"/>-->
                             <input required placeholder="Name" type="text" ng-model="SSName" name="Name" value="test" />
                             <input required placeholder="Gender" type="text" ng-model="SGender" name="Gender" />
                             <input required placeholder="Age" type="text" ng-model="SAge" name="Age" />

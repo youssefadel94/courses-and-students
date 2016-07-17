@@ -49,8 +49,32 @@ namespace Student_Course_Demo.Controllers
             {
                 return BadRequest();
             }
+            var dbCours = db.Courses.FirstOrDefault(o => o.Id == cours.Id);
+            
 
-            db.Entry(cours).State = EntityState.Modified;
+            foreach(var student in cours.Students)
+            {
+                bool found = false;
+                foreach(var dbS in dbCours.Students)
+                {
+                    if(student.Id == dbS.Id)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if(!found)
+                {
+                    var s = db.Students.FirstOrDefault(o=>o.Id == student.Id);
+
+                    dbCours.Students.Add(s);
+                }
+            }
+
+            //dbCours.Students = cours.Students;
+
+            db.Entry(dbCours).State = EntityState.Modified;
 
             try
             {

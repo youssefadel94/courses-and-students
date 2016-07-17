@@ -62,6 +62,7 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
     $scope.SYear = '';
     $scope.showC = false;
     $scope.showS = false;
+    $scope.studenttoCours = '';
 
     $scope.submit = function (Des) {
         if (Des == "Cours") {
@@ -85,6 +86,21 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
 
             }
         }
+       
+            if (Des == "studenttoCours") {
+                Des = "Cours";
+                if ($scope.SCName && $scope.SLevel) {
+                   // $scope.students[$scope.studenttoCours - 1].Courses[$scope.students[$scope.studenttoCours].Courses.length] = $scope.Vcourse;
+                    $scope.Vcourse.Students[$scope.Vcourse.Students.length] = $scope.students[$scope.studenttoCours - 1];
+                    var jData = $scope.Vcourse;
+
+                    $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
+                        Refresh(Des);
+                    });
+
+                }
+            }
+       
         if (Des == "VCours") {
             Des = "Cours";
             if ($scope.CId) {
