@@ -50,7 +50,37 @@ namespace Student_Course_Demo.Controllers
                 return BadRequest();
             }
 
-            db.Entry(student).State = EntityState.Modified;
+            var dbStudent = db.Students.FirstOrDefault(o => o.Id == student.Id);
+
+
+            foreach (var course in student.Courses)
+            {
+                bool found = false;
+                foreach (var dbS in dbStudent.Courses)
+                {
+                    if (course.Id == dbS.Id)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    var s = db.Courses.FirstOrDefault(o => o.Id == course.Id);
+
+                    dbStudent.Courses.Add(s);
+                }
+            }
+
+         
+            dbStudent.Name = student.Name;
+            dbStudent.Year = student.Year;
+            dbStudent.Gender = student.Gender;
+            dbStudent.Age = student.Age;
+
+
+            db.Entry(dbStudent).State = EntityState.Modified;
 
             try
             {

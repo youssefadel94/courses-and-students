@@ -71,7 +71,9 @@ namespace Student_Course_Demo.Controllers
                     dbCours.Students.Add(s);
                 }
             }
-
+            
+            dbCours.Name = cours.Name;
+            dbCours.Level = cours.Level;
             //dbCours.Students = cours.Students;
 
             db.Entry(dbCours).State = EntityState.Modified;

@@ -91,7 +91,12 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
                 Des = "Cours";
                 if ($scope.SCName && $scope.SLevel) {
                    // $scope.students[$scope.studenttoCours - 1].Courses[$scope.students[$scope.studenttoCours].Courses.length] = $scope.Vcourse;
-                    $scope.Vcourse.Students[$scope.Vcourse.Students.length] = $scope.students[$scope.studenttoCours - 1];
+                    for (i = $scope.students.length ; i>-1;i--){
+                    if($scope.students[i].id = $scope.studenttoCours){
+                        $scope.studenttoadd = $scope.students[i];
+                    }
+            }
+                    $scope.Vcourse.Students[$scope.Vcourse.Students.length] = $scope.studenttoadd;
                     var jData = $scope.Vcourse;
 
                     $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
@@ -130,6 +135,24 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
             if ($scope.SSName && $scope.SGender && $scope.SYear && $scope.SAge && $scope.Vstudent.Id) {
                 var Data = { "Id": $scope.Vstudent.Id, "Name": $scope.SSName, "Gender": $scope.SGender, "Age": $scope.SAge, "Year": $scope.SYear };
                 var jData = JSON.stringify(Data);
+                $http.put("/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).success(function (DataR) {
+                    Refresh(Des);
+                });
+
+            }
+        }
+        if (Des == "coursetoStudent") {
+            Des = "Students";
+            if ($scope.SId) {
+                // $scope.students[$scope.studenttoCours - 1].Courses[$scope.students[$scope.studenttoCours].Courses.length] = $scope.Vcourse;
+                for (i = $scope.courses.length ; i > -1; i--) {
+                    if ($scope.courses[i].id = $scope.coursetoStudent) {
+                        $scope.studenttoadd = $scope.courses[i];
+                    }
+                }
+                $scope.Vstudent.Courses[$scope.Vstudent.Courses.length] = $scope.studenttoadd;
+                var jData = $scope.Vstudent;
+
                 $http.put("/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).success(function (DataR) {
                     Refresh(Des);
                 });
