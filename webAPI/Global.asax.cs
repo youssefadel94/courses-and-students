@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
+
 namespace webAPI
 {
     public class WebApiApplication : System.Web.HttpApplication
@@ -16,6 +17,7 @@ namespace webAPI
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
             //
+          
         }
     }
 }

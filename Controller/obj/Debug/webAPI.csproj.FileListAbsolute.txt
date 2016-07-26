@@ -1,3 +1,0 @@
-C:\Users\youssef.hassanein\documents\visual studio 2015\Projects\student_course_demo\Controller\obj\Debug\webAPI.csprojResolveAssemblyReference.cache
-C:\Users\youssef.hassanein\documents\visual studio 2015\Projects\student_course_demo\Controller\obj\Debug\Controller.dll
-C:\Users\youssef.hassanein\documents\visual studio 2015\Projects\student_course_demo\Controller\obj\Debug\Controller.pdb
