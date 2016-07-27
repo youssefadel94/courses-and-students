@@ -63,11 +63,24 @@
             </div>
             <div class="col-md-6" style="text-align: center;">
 
+
+
+
+               <!-- <input type="text" ng-autocomplete ng-model="courses" options="options" details="details" />
+                   -->
+
+
+                
+
+
                 <form style="text-align: center;" class="row" ng-submit="submit('VCours')">
 
                     <!--<input type="text" ng-model="Id" name="Id"/>-->
-                    <input required placeholder="Id" type="text" ng-model="CId" name="Id" />
-                    <input type="submit" class="btn btn-success" id="submit" value="View or Edit Course" />
+                   
+                    <autocomplete ng-model="coursetoEdit" data="coursesNames" ng-mouseenter="loadsugc()"></autocomplete>
+
+                    
+                     <input type="submit" class="btn btn-success" id="submit" value="View or Edit Course" />
 
                 </form>
                 <br /><hr />
@@ -188,7 +201,9 @@
             <div class="col-md-6" style="text-align: center;">
                 <form style="text-align: center;" class="row" ng-submit="submit('VStudents')">
                     <!--<input type="text" ng-model="Id" name="Id"/>-->
-                    <input required placeholder="Id" type="text" ng-model="SId" name="Id" />
+
+                    <autocomplete ng-model="studenttoEdit" data="studentsNames" ng-mouseenter="loadsugs()"></autocomplete>
+
                     <input type="submit" class="btn btn-success" id="submit" value="View or Edit student" />
 
                 </form>
