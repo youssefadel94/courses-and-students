@@ -200,7 +200,7 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
             if ($scope.SCName && $scope.SLevel) {
 
                 for (i = $scope.students.length ; i > 0 ; i--) {
-                    var a = $scope.students[i - 1].Id;
+                    var a = $scope.students[i - 1].Name;
                     if (a == $scope.studenttoCours) {
                         $scope.studenttoadd = $scope.students[i - 1];
                     }
@@ -279,7 +279,7 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
             Des = "Students";
             if ($scope.SId) {
                 for (i = $scope.courses.length ; i > 0; i--) {
-                    if ($scope.courses[i - 1].Id == $scope.coursetoStudent) {
+                    if ($scope.courses[i - 1].Name == $scope.coursetoStudent) {
                         $scope.studenttoadd = $scope.courses[i - 1];
                     }
                 }

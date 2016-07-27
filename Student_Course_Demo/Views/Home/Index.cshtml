@@ -156,8 +156,8 @@
                         <form style="text-align: center;" class="row" ng-submit="submit('studenttoCours')">
 
                             <!--<input type="text" ng-model="Id" name="Id"/>-->
-                            <input required placeholder="id" type="text" ng-model="studenttoCours" name="Name"  >
-                             
+                            <autocomplete ng-model="studenttoCours" data="studentsNames" ng-mouseenter="loadsugs()"></autocomplete>
+                            <p style="color: red; text-align: center;">{{errorexist}}</p>
                                 <!--<input type="text" ng-model="Id" name="Id"/>  <option ng-repeat="studentsofCours in studentsofCourses" value="{{studentsofCours.Id}}">{{studentsofCours.Name}}</option>
                              </select>-->
                            
@@ -326,8 +326,8 @@
                         <form style="text-align: center;" class="row" ng-submit="submit('coursetoStudent')">
 
                             <!--<input type="text" ng-model="Id" name="Id"/>-->
-                            <input required placeholder="id" type="text" ng-model="coursetoStudent" name="Name">
-
+                            <autocomplete ng-model="coursetoStudent" data="coursesNames" ng-mouseenter="loadsugc()"></autocomplete>
+                            <p style="color: red; text-align: center;">{{errorsexist}}</p>
                             <!--<input type="text" ng-model="Id" name="Id"/>  <option ng-repeat="studentsofCours in studentsofCourses" value="{{studentsofCours.Id}}">{{studentsofCours.Name}}</option>
         </select>-->
 
