@@ -1,4 +1,4 @@
-var app = angular.module("mainApp", ['autocomplete']).config(['$controllerProvider',
+var app = angular.module("mainApp", ['autocomplete','vcRecaptcha']).config(['$controllerProvider',
         function ($controllerProvider) {
             $controllerProvider.allowGlobals();
         }

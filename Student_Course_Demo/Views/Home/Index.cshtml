@@ -53,7 +53,7 @@
 
                     </tbody>
                 </table>
-                <form style="text-align: center;" ng-submit="submit('Cours')">
+                <form style="text-align: center;"  ng-submit="submit('Cours')"  >
 
                     <!--<input type="text" ng-model="Id" name="Id"/>-->
                     <input required placeholder="Name" type="text" ng-model="CName" name="Name" />
@@ -70,7 +70,8 @@
                     </select>
                     <input required placeholder="Code" type="text" ng-model="Code" name="Code" />
 
-                    <input type="submit" class="btn btn-success" id="submit" value="Add course" />
+                    <input type="submit" value="Submit" class="btn btn-success" id="submit" value="Add course" />
+                    <div  class="g-recaptcha" data-sitekey="6LdOHiYTAAAAANHI1yZrqsGsniH-o1kTWxWkJmrn"></div>
 
                 </form>
                 <p style="color: red; text-align: center;">{{errorPostCourse}}</p>
@@ -104,7 +105,18 @@
 
                         <!-- ng-if="showC" <input type="text" ng-model="Id" name="Id"/>-->
                         <input required placeholder="Name" type="text" ng-model="SCName" name="Name" />
-                        <input required placeholder="Level" type="text" ng-model="SLevel" name="Level" />
+                        
+                        <select required ng-model="SLevel">
+                            <option value="Hard">
+                                Hard
+                            </option>
+                            <option value="Medium">
+                                Medium
+                            </option>
+                            <option value="Easy">
+                                Easy
+                            </option>
+                        </select>
                         <input required placeholder="Code" type="text" ng-model="SCode" name="Code" />
                         <input type="submit" class="btn btn-success" id="submit" value="Update course" />
                     </form>
@@ -253,9 +265,33 @@
                         <form style="text-align: center;" class="row" ng-submit="submit('SStudents')">
                             <!-- ng-if="showS"<input type="text" ng-model="Id" name="Id"/>-->
                             <input required placeholder="Name" type="text" ng-model="SSName" name="Name" value="test" />
-                            <input required placeholder="Gender" type="text" ng-model="SGender" name="Gender" />
-                            <input required placeholder="Age" type="text" ng-model="SAge" name="Age" />
-                            <input required placeholder="Year" type="text" ng-model="SYear" name="Year" />
+                            <select required ng-model="SGender">
+                                <option value="Male">
+                                    Male
+                                </option>
+                                <option value="Female">
+                                    Female
+                                </option>
+                            </select>
+                            <input required min="18" max="24" placeholder="Age" type="number" ng-model="SAge" name="Age" />
+                            <select required ng-model="SYear">
+                                <option value="1">
+                                    Year 1
+                                </option>
+                                <option value="2">
+                                    Year 2
+                                </option>
+                                <option value="3">
+                                    Year 3
+                                </option>
+                                <option value="4">
+                                    Year 4
+                                </option>
+                                <option value="5">
+                                    Year 5
+                                </option>
+
+                            </select>
                             <input type="submit" class="btn btn-success" id="submit" value="Update student" />
                         </form>
                         </div>

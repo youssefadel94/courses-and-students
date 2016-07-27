@@ -1,4 +1,4 @@
-app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
+app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, ApiCall*/) {
 
     // get courses
     $http.get("/api/Cours")
@@ -117,12 +117,12 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
         $scope.coursesNames = [''];
         
         
-            //get courses names
-            for (i = $scope.courses.length ; i > 0 ; i--) {
+        //get courses names
+        for (i = $scope.courses.length ; i > 0 ; i--) {
 
-                $scope.coursesNames[$scope.coursesNames.length + 1] = $scope.courses[i - 1].Name;
-            }
-            //getv studneet names
+            $scope.coursesNames[$scope.coursesNames.length + 1] = $scope.courses[i - 1].Name;
+               }
+        //getv studneet names
           
 
           
@@ -132,11 +132,12 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
         
         $scope.studentsNames = [''];
       
-            //getv studneet names
-            for (i = $scope.students.length ; i > 0 ; i--) {
+        //getv studneet names
+        for (i = $scope.students.length ; i > 0 ; i--) {
 
-                $scope.studentsNames[$scope.studentsNames.length + 1] = $scope.students[i - 1].Name;
-            }
+            $scope.studentsNames[$scope.studentsNames.length + 1] = $scope.students[i - 1].Name;
+           
+        }
             
           
 
@@ -151,6 +152,9 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
     //form submition
     $scope.submit = function (Des) {
 
+       // if (vcRecaptchaService.getResponse() === "") { //if string is empty
+       //     alert("Please resolve the captcha and submit!")
+       // } else {
         //post new course
 
         if (Des == "Cours") {
@@ -216,7 +220,14 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
         //get course/id
         if (Des == "VCours") {
             Des = "Cours";
-            if ($scope.CId) {
+            if ($scope.coursetoEdit) {
+                for (i = $scope.courses.length ; i > 0 ; i--) {
+                    var a = $scope.courses[i - 1].Name;
+                    if (a == $scope.coursetoEdit) {
+                        $scope.CId = $scope.courses[i - 1].Id;
+                    }
+                }
+
                 $http.get("/api/" + Des + "/" + $scope.CId).then(function (response) {
                     $scope.Vcourse = response.data;
                     $scope.SCName = $scope.Vcourse.Name;
@@ -287,7 +298,13 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
         //get student/id
         if (Des == "VStudents") {
             Des = "Students";
-            if ($scope.SId) {
+            if ($scope.studenttoEdit) {
+                for (i = $scope.students.length ; i > 0 ; i--) {
+                    var a = $scope.students[i - 1].Name;
+                    if (a == $scope.studenttoEdit) {
+                        $scope.SId = $scope.students[i - 1].Id;
+                    }
+                }
                 $http.get("/api/" + Des + "/" + $scope.SId).then(function (response) {
                     $scope.Vstudent = response.data;
                     $scope.SSName = $scope.Vstudent.Name;
@@ -298,13 +315,13 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
 
                 });
 
-            }
+            //}
         }
         //
 
 
 
-    }
+    }}
 
 });
 
