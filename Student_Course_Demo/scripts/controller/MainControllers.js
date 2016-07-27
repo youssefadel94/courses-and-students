@@ -112,12 +112,11 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
 
 
     //auto complete  
-    var b = 1;
-    var a = 1;
+   
     $scope.loadsugc = function () {
         $scope.coursesNames = [''];
         
-        if (a == 1) {
+        
             //get courses names
             for (i = $scope.courses.length ; i > 0 ; i--) {
 
@@ -126,13 +125,13 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
             //getv studneet names
           
 
-            a = 0;
-        }
+          
+        
     }
     $scope.loadsugs = function () {
         
         $scope.studentsNames = [''];
-        if (b == 1) {
+      
             //getv studneet names
             for (i = $scope.students.length ; i > 0 ; i--) {
 
@@ -141,8 +140,7 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
             
           
 
-            b = 0;
-        }
+            
     }
     //
 
@@ -157,7 +155,7 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
 
         if (Des == "Cours") {
             if ($scope.CName && $scope.Level) {
-                var Data = { "Name": $scope.CName, "Level": $scope.Level };
+                var Data = { "Name": $scope.CName, "Level": $scope.Level, "Code": $scope.Code };
                 var jData = JSON.stringify(Data);
                 $http.post("/api/" + Des, jData, []).success(function (DataR) {
                     Refresh(Des);
@@ -168,11 +166,11 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
         //
 
 
-        //get course/id
+        //put course/id
         if (Des == "SCours") {
             Des = "Cours";
             if ($scope.SCName && $scope.SLevel && $scope.Vcourse.Id) {
-                var Data = { "Id": $scope.Vcourse.Id, "Name": $scope.SCName, "Level": $scope.SLevel };
+                var Data = { "Id": $scope.Vcourse.Id, "Name": $scope.SCName, "Level": $scope.SLevel, "Code": $scope.SCode };
                 var jData = JSON.stringify(Data);
                 $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
                     Refresh(Des);
@@ -214,6 +212,7 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
                     $scope.Vcourse = response.data;
                     $scope.SCName = $scope.Vcourse.Name;
                     $scope.SLevel = $scope.Vcourse.Level;
+                    $scope.SCode = $scope.Vcourse.Code;
                     $scope.Sstudents = $scope.Vcourse.Students;
 
                 });

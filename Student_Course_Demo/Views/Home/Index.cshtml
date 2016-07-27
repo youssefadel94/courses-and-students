@@ -33,6 +33,7 @@
                             <th style="text-align: center;">Id</th>
                             <th style="text-align: center;">Name</th>
                             <th style="text-align: center;">Level</th>
+                            <th style="text-align: center;">Code</th>
                             <th style="text-align: center;">Delete</th>
                         </tr>
                     </thead>
@@ -41,6 +42,7 @@
                             <td>{{course.Id}}</td>
                             <td>{{course.Name}}</td>
                             <td>{{course.Level}}</td>
+                            <td>{{course.Code}}</td>
                             <td>
                                 <div class="btn btn-success" ng-click="delete('Cours',course.Id)">
                                     <span class="fa fa-ban">
@@ -56,6 +58,7 @@
                     <!--<input type="text" ng-model="Id" name="Id"/>-->
                     <input required placeholder="Name" type="text" ng-model="CName" name="Name" />
                     <input required placeholder="Level" type="text" ng-model="Level" name="Level" />
+                    <input required placeholder="Code" type="text" ng-model="Code" name="Code" />
 
                     <input type="submit" class="btn btn-success" id="submit" value="Add course" />
 
@@ -91,6 +94,7 @@
                         <!-- ng-if="showC" <input type="text" ng-model="Id" name="Id"/>-->
                         <input required placeholder="Name" type="text" ng-model="SCName" name="Name" />
                         <input required placeholder="Level" type="text" ng-model="SLevel" name="Level" />
+                        <input required placeholder="Code" type="text" ng-model="SCode" name="Code" />
                         <input type="submit" class="btn btn-success" id="submit" value="Update course" />
                     </form>
                         </div>
