@@ -238,6 +238,7 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
                 });
 
             }
+            //$('showcours').toggle('slow');
         }//
 
         // post new student
@@ -260,7 +261,7 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
         }
         //
 
-        //get student/id
+        //put student/id
         if (Des == "SStudents") {
             Des = "Students";
             if ($scope.SSName && $scope.SGender && $scope.SYear && $scope.SAge && $scope.Vstudent.Id) {
@@ -318,7 +319,7 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
             //}
         }
         //
-
+          //  $('showstudent').toggle('slow');
 
 
     }}
