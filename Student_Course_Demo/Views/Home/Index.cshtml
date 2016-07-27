@@ -57,12 +57,23 @@
 
                     <!--<input type="text" ng-model="Id" name="Id"/>-->
                     <input required placeholder="Name" type="text" ng-model="CName" name="Name" />
-                    <input required placeholder="Level" type="text" ng-model="Level" name="Level" />
+                    <select required ng-model="Level">
+                        <option value="Hard">
+                            Hard
+                        </option>
+                        <option value="Medium">
+                            Medium
+                        </option>
+                        <option value="Easy">
+                            Easy
+                        </option>
+                    </select>
                     <input required placeholder="Code" type="text" ng-model="Code" name="Code" />
 
                     <input type="submit" class="btn btn-success" id="submit" value="Add course" />
 
                 </form>
+                <p style="color: red; text-align: center;">{{errorPostCourse}}</p>
             </div>
             <div class="col-md-6" style="text-align: center;">
 
@@ -192,13 +203,38 @@
                 <form style="text-align: center;" class="row" ng-submit="submit('Students')">
                     <!--<input type="text" ng-model="Id" name="Id"/>-->
                     <input required placeholder="Name" type="text" ng-model="SName" name="Name" />
-                    <input required placeholder="Gender" type="text" ng-model="Gender" name="Gender" />
-                    <input required placeholder="Age" type="text" ng-model="Age" name="Age" />
-                    <input required placeholder="Year" type="text" ng-model="Year" name="Year" />
+                   
+                    <select required ng-model="Gender">
+                    <option value="Male">Male
+                        </option>
+                        <option value="Female">
+                            Female
+                        </option>
+                    </select>
+                    <input required min="18" max="24" placeholder="Age" type="number" ng-model="Age" name="Age" />
+
+                    <select required ng-model="Year">
+                        <option value="1">
+                            Year 1
+                        </option>
+                        <option value="2">
+                            Year 2
+                        </option>
+                        <option value="3">
+                            Year 3
+                        </option>
+                        <option value="4">
+                            Year 4
+                        </option>
+                        <option value="5">
+                            Year 5
+                        </option>
+                       
+                    </select>
                     <input type="submit" class="btn btn-success" id="submit" value="Add student" />
 
                 </form>
-
+                <p style="color: red; text-align: center;">{{errorPostStudent}}</p>
 
             </div>
 

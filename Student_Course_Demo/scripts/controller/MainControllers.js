@@ -157,9 +157,18 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
             if ($scope.CName && $scope.Level) {
                 var Data = { "Name": $scope.CName, "Level": $scope.Level, "Code": $scope.Code };
                 var jData = JSON.stringify(Data);
-                $http.post("/api/" + Des, jData, []).success(function (DataR) {
+                $http.post("/api/" + Des, jData, []).then(function successCallback(response) {
+                    // this callback will be called asynchronously
+                    // when the response is available
                     Refresh(Des);
+                    $scope.errorPostCourse = "";
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    $scope.errorPostCourse = "something went wrong .. please check if the entry already exist or wrong data";
                 });
+
+                    
 
             }
         }
@@ -225,8 +234,15 @@ app.controller("MainController", function ($scope, $http/*, ApiCall*/) {
             if ($scope.SName && $scope.Gender && $scope.Year && $scope.Age) {
                 var Data = { "Name": $scope.SName, "Gender": $scope.Gender, "Age": $scope.Age, "Year": $scope.Year };
                 var jData = JSON.stringify(Data);
-                $http.post("/api/" + Des, jData, []).success(function (DataR) {
+                $http.post("/api/" + Des, jData, []).then(function successCallback(response) {
+                    // this callback will be called asynchronously
+                    // when the response is available
                     Refresh(Des);
+                    $scope.errorPostStudent = "";
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    $scope.errorPostStudent = "something went wrong .. please check if the entry already exist or wrong data";
                 });
 
             }
