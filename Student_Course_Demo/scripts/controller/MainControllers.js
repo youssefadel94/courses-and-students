@@ -146,8 +146,8 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
     //
 
 
-    var b = 0;
-    var c = 0;
+    var b = 1;
+    var c = 1;
 
     //form submition
     $scope.submit = function (Des) {
@@ -241,7 +241,7 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
                     var a = $scope.courses[i - 1].Name;
                     if (a == $scope.coursetoEdit) {
                         $scope.CId = $scope.courses[i - 1].Id;
-                        b = 1;
+                       
                     }
                 }
 
@@ -338,7 +338,7 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
                 for (i = $scope.students.length ; i > 0 ; i--) {
                     var a = $scope.students[i - 1].Name;
                     if (a == $scope.studenttoEdit) {
-                        c = 1;
+                   
                         $scope.SId = $scope.students[i - 1].Id;
                     }
                 }
