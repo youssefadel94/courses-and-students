@@ -1,4 +1,4 @@
-app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, ApiCall*/) {
+app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http/*, ApiCall*/) {
 
     // get courses
     $http.get("/api/Cours")
@@ -158,21 +158,27 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
         //post new course
 
         if (Des == "Cours") {
-            if ($scope.CName && $scope.Level) {
-                var Data = { "Name": $scope.CName, "Level": $scope.Level, "Code": $scope.Code };
-                var jData = JSON.stringify(Data);
-                $http.post("/api/" + Des, jData, []).then(function successCallback(response) {
-                    // this callback will be called asynchronously
-                    // when the response is available
-                    Refresh(Des);
-                    $scope.errorPostCourse = "";
-                }, function errorCallback(response) {
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                    $scope.errorPostCourse = "something went wrong .. entry already exist";
-                });
+            var res = $('#g-recaptcha-response');
+            if (res.val()) {
+                if ($scope.CName && $scope.Level) {
+                    var Data = { "Name": $scope.CName, "Level": $scope.Level, "Code": $scope.Code };
+                    var jData = JSON.stringify(Data);
+                    $http.post("/api/" + Des, jData, []).then(function successCallback(response) {
+                        // this callback will be called asynchronously
+                        // when the response is available
+                        Refresh(Des);
+                        $scope.errorPostCourse = "";
+                    }, function errorCallback(response) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                        $scope.errorPostCourse = "something went wrong .. entry already exist";
+                    });
 
 
+                }
+            }
+            else {
+                $scope.errorPostCourse = "please prove you are not a ROBOT";
 
             }
         }
