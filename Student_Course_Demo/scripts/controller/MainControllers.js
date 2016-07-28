@@ -201,9 +201,10 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
                     // or server returns response with an error status.
                     $scope.errorCourseAT = "something went wrong .. name already taken";
                 });
-                    
+
 
             }
+          
         }
         //
 
