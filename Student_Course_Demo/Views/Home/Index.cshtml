@@ -19,7 +19,7 @@
             <div class="col-md-12" style="text-align:center;">
                 <br />
                 <h2>Courses</h2>
-                <hr /><br />
+                <br /><br />
             </div>
 
         </div>
@@ -93,7 +93,7 @@
             <div class="col-md-12" style="text-align:center;">
                 <br />
                 <h2>Students</h2>
-                <hr /><br />
+                <br /><br />
             </div>
 
         </div>
@@ -183,7 +183,7 @@
 
             <div class="col-md-6" style="text-align:center;">
                 <br />
-                <h3>Show/Edit courses</h3><hr />
+                <h3>Show/Edit courses</h3><br />
                 <p>enter the id of the course you want to view or edit</p><br />
             </div>
 
@@ -191,7 +191,7 @@
 
             <div class="col-md-6" style="text-align:center;">
                 <br />
-                <h3>Show/Edit students</h3><hr />
+                <h3>Show/Edit students</h3><br />
                 <p>enter the id of the course you want to view or edit</p><br />
             </div>
 
@@ -230,9 +230,9 @@
 
 
                     <input type="submit" class="btn btn-success" id="submit" value="View or Edit Course" />
-
+                    <p style="color: red; text-align: center;">{{errorCourseNE}}</p>
                 </form>
-                <br /><hr />
+                <br /><br />
                 <div class="row" id="showcours" style="display:none;">
                     <div class="row">
                         <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('SCours')">
@@ -253,10 +253,13 @@
                             </select>
                             <input maxlength="10" required placeholder="Code" type="text" ng-model="SCode" name="Code" />
                             <input type="submit" class="btn btn-success" id="submit" value="Update course" />
+                            <p style="color: red; text-align: center;">{{errorCourseAt}}</p>
                         </form>
                     </div>
+                    <hr /><br />
                     <div class="row">
                         <h5 style="text-align:center;">Students taking this course</h5>
+                        <br /><br />
                         <table style="width: 100%;
                        margin: auto;
                        text-align: center;">
@@ -270,6 +273,7 @@
                                     <th style="text-align: center;">Delete</th>
                                 </tr>
                             </thead>
+                      
                             <tbody>
                                 <tr ng-repeat="Sstudent in Sstudents">
                                     <td>{{Sstudent.Id}}</td>
@@ -287,6 +291,7 @@
 
                             </tbody>
                         </table>
+                        <br /><br />
                         <div class="col-md-11 text-center" style="margin: 10px;">
                             <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('studenttoCours')">
 
@@ -327,9 +332,9 @@
                     <autocomplete ng-model="studenttoEdit" data="studentsNames" ng-mouseenter="loadsugs()"></autocomplete>
 
                     <input type="submit" class="btn btn-success" id="submit" value="View or Edit student" />
-
+                    <p style="color: red; text-align: center;">{{errorStudentNE}}</p>
                 </form>
-                <br /><hr />
+                <br /><br />
                 <div class="row" id="showstudent" style="display:none;">
                     <div class="row">
                         <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('SStudents')">
@@ -363,10 +368,13 @@
 
                             </select>
                             <input type="submit" class="btn btn-success" id="submit" value="Update student" />
+                            <p style="color: red; text-align: center;">{{errorStudentAt}}</p>
                         </form>
                     </div>
+                    <hr /><br />
                     <div class="row">
                         <h5 style="text-align:center;">Courses this student is taking</h5>
+                        <br /><br />
                         <table style="width: 100%;
                        margin: auto;
                        text-align: center;">
@@ -393,6 +401,7 @@
 
                             </tbody>
                         </table>
+                        <br /><br />
                         <div class="col-md-11 text-center" style="margin: 10px;">
                             <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('coursetoStudent')">
 

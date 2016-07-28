@@ -146,8 +146,8 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
     //
 
 
-    var b = 1;
-    var c = 1;
+    var b = 0;
+    var c = 0;
 
     //form submition
     $scope.submit = function (Des) {
@@ -191,9 +191,17 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
             if ($scope.SCName && $scope.SLevel && $scope.Vcourse.Id) {
                 var Data = { "Id": $scope.Vcourse.Id, "Name": $scope.SCName, "Level": $scope.SLevel, "Code": $scope.SCode };
                 var jData = JSON.stringify(Data);
-                $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
+                $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).then(function successCallback(response) {
+                    // this callback will be called asynchronously
+                    // when the response is available
                     Refresh(Des);
+                    $scope.errorCourseAT = "";
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    $scope.errorCourseAT = "something went wrong .. name already taken";
                 });
+                    
 
             }
         }
@@ -232,21 +240,28 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
                     var a = $scope.courses[i - 1].Name;
                     if (a == $scope.coursetoEdit) {
                         $scope.CId = $scope.courses[i - 1].Id;
+                        b = 1;
                     }
                 }
 
-                $http.get("/api/" + Des + "/" + $scope.CId).then(function (response) {
+                $http.get("/api/" + Des + "/" + $scope.CId).then(function successCallback(response) {
                     $scope.Vcourse = response.data;
                     $scope.SCName = $scope.Vcourse.Name;
                     $scope.SLevel = $scope.Vcourse.Level;
                     $scope.SCode = $scope.Vcourse.Code;
                     $scope.Sstudents = $scope.Vcourse.Students;
-
+                    if (b == 1) {
+                        $('#showcours').toggle('slow');
+                        b = 0;
+                        $scope.errorCourseNE = "";
+                    }
+                   
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    $scope.errorCourseNE = "course does not exist";
                 });
-                if (b == 1) {
-                    $('#showcours').toggle('slow');
-                    b = 0;
-                }
+              
             }
 
         }//
@@ -277,9 +292,17 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
             if ($scope.SSName && $scope.SGender && $scope.SYear && $scope.SAge && $scope.Vstudent.Id) {
                 var Data = { "Id": $scope.Vstudent.Id, "Name": $scope.SSName, "Gender": $scope.SGender, "Age": $scope.SAge, "Year": $scope.SYear };
                 var jData = JSON.stringify(Data);
-                $http.put("/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).success(function (DataR) {
+                $http.put("/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).then(function successCallback(response) {
+                    // this callback will be called asynchronously
+                    // when the response is available
                     Refresh(Des);
+                    $scope.errorStudentAT = "";
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    $scope.errorStudentAT = "something went wrong .. name already taken";
                 });
+                    
 
             }
         }
@@ -314,22 +337,29 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
                 for (i = $scope.students.length ; i > 0 ; i--) {
                     var a = $scope.students[i - 1].Name;
                     if (a == $scope.studenttoEdit) {
+                        c = 1;
                         $scope.SId = $scope.students[i - 1].Id;
                     }
                 }
-                $http.get("/api/" + Des + "/" + $scope.SId).then(function (response) {
+                $http.get("/api/" + Des + "/" + $scope.SId).then(function successCallback(response) {
                     $scope.Vstudent = response.data;
                     $scope.SSName = $scope.Vstudent.Name;
                     $scope.SGender = $scope.Vstudent.Gender;
                     $scope.SAge = $scope.Vstudent.Age;
                     $scope.SYear = $scope.Vstudent.Year;
                     $scope.Ccourses = $scope.Vstudent.Courses;
-
+                    if (c == 1) {
+                        $('#showstudent').toggle('slow');
+                        c = 0;
+                        $scope.errorStudentNE = "";
+                    }
+                 
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    $scope.errorStudentNE = "student does not exist";
                 });
-                if (c == 1) {
-                    $('#showstudent').toggle('slow');
-                    c = 0;
-                }
+               
                 //}
             }
             //
