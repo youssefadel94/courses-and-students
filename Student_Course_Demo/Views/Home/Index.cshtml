@@ -56,7 +56,7 @@
                 <form style="text-align: center;margin:auto;" ng-submit="submit('Cours')">
 
                     <!--<input type="text" ng-model="Id" name="Id"/>-->
-                    <input required placeholder="Name" type="text" ng-model="CName" name="Name" />
+                    <input required placeholder="Name" type="text" ng-model="CName" name="Name" maxlength="20"/>
                     <select required ng-model="Level">
                         <option value="Hard">
                             Hard
@@ -68,7 +68,7 @@
                             Easy
                         </option>
                     </select>
-                    <input required placeholder="Code" type="text" ng-model="Code" name="Code" />
+                    <input maxlength="10" required placeholder="Code" type="text" ng-model="Code" name="Code" />
 
                     <input type="submit" value="Submit" class="btn btn-success" id="submit" value="Add course" />
                    
@@ -132,7 +132,7 @@
 
                 <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('Students')">
                     <!--<input type="text" ng-model="Id" name="Id"/>-->
-                    <input required placeholder="Name" type="text" ng-model="SName" name="Name" />
+                    <input maxlength="20" required placeholder="Name" type="text" ng-model="SName" name="Name" />
 
                     <select required ng-model="Gender">
                         <option value="Male">
@@ -238,7 +238,7 @@
                         <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('SCours')">
 
                             <!-- ng-if="showC" <input type="text" ng-model="Id" name="Id"/>-->
-                            <input required placeholder="Name" type="text" ng-model="SCName" name="Name" />
+                            <input maxlength="20" required placeholder="Name" type="text" ng-model="SCName" name="Name" />
 
                             <select required ng-model="SLevel">
                                 <option value="Hard">
@@ -251,7 +251,7 @@
                                     Easy
                                 </option>
                             </select>
-                            <input required placeholder="Code" type="text" ng-model="SCode" name="Code" />
+                            <input maxlength="10" required placeholder="Code" type="text" ng-model="SCode" name="Code" />
                             <input type="submit" class="btn btn-success" id="submit" value="Update course" />
                         </form>
                     </div>
@@ -287,19 +287,19 @@
 
                             </tbody>
                         </table>
-                        <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('studenttoCours')">
+                        <div class="col-md-11 text-center" style="margin: 10px;">
+                            <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('studenttoCours')">
 
-                            <!--<input type="text" ng-model="Id" name="Id"/>-->
-                            <autocomplete ng-model="studenttoCours" data="studentsNames" ng-mouseenter="loadsugs()"></autocomplete>
-                            <p style="color: red; text-align: center;">{{errorexist}}</p>
-                            <!--<input type="text" ng-model="Id" name="Id"/>  <option ng-repeat="studentsofCours in studentsofCourses" value="{{studentsofCours.Id}}">{{studentsofCours.Name}}</option>
-                            </select>-->
+                                <!--<input type="text" ng-model="Id" name="Id"/>-->
+                                <autocomplete ng-model="studenttoCours" data="studentsNames" ng-mouseenter="loadsugs()"></autocomplete>
+                                <p style="color: red; text-align: center;">{{errorexist}}</p>
+                                <!--<input type="text" ng-model="Id" name="Id"/>  <option ng-repeat="studentsofCours in studentsofCourses" value="{{studentsofCours.Id}}">{{studentsofCours.Name}}</option>
+            </select>-->
 
-                            <input type="submit" class="btn btn-success" id="submit" value="add Student" />
-                            dd
-                                          </form>
-                        </form>
-                        >
+                                <input type="submit" class="btn btn-success" id="submit" value="add Student" />
+
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -334,7 +334,7 @@
                     <div class="row">
                         <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('SStudents')">
                             <!-- ng-if="showS"<input type="text" ng-model="Id" name="Id"/>-->
-                            <input required placeholder="Name" type="text" ng-model="SSName" name="Name" value="test" />
+                            <input maxlength="20" required placeholder="Name" type="text" ng-model="SSName" name="Name" value="test" />
                             <select required ng-model="SGender">
                                 <option value="Male">
                                     Male
@@ -393,17 +393,19 @@
 
                             </tbody>
                         </table>
-                        <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('coursetoStudent')">
+                        <div class="col-md-11 text-center" style="margin: 10px;">
+                            <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('coursetoStudent')">
 
-                            <!--<input type="text" ng-model="Id" name="Id"/>-->
-                            <autocomplete ng-model="coursetoStudent" data="coursesNames" ng-mouseenter="loadsugc()"></autocomplete>
-                            <p style="color: red; text-align: center;">{{errorsexist}}</p>
-                            <!--<input type="text" ng-model="Id" name="Id"/>  <option ng-repeat="studentsofCours in studentsofCourses" value="{{studentsofCours.Id}}">{{studentsofCours.Name}}</option>
-                            </select>-->
+                                <!--<input type="text" ng-model="Id" name="Id"/>-->
+                                <autocomplete ng-model="coursetoStudent" data="coursesNames" ng-mouseenter="loadsugc()"></autocomplete>
+                                <p style="color: red; text-align: center;">{{errorsexist}}</p>
+                                <!--<input type="text" ng-model="Id" name="Id"/>  <option ng-repeat="studentsofCours in studentsofCourses" value="{{studentsofCours.Id}}">{{studentsofCours.Name}}</option>
+            </select>-->
 
-                            <input type="submit" class="btn btn-success" id="submit" value="add Course" />
-                            "
-                        </form>
+                                <input type="submit" class="btn btn-success" id="submit" value="add Course" />
+
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

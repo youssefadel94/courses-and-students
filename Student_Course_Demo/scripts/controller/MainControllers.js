@@ -46,7 +46,7 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
         if (name == "StudentofCours") {
             Des = "Cours";
             if ($scope.CId) {
-           
+
                 for (i = $scope.students.length ; i > 0 ; i--) {
                     var a = $scope.students[i - 1].Id;
                     if (a == Id) {
@@ -112,49 +112,49 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
 
 
     //auto complete  
-   
+
     $scope.loadsugc = function () {
         $scope.coursesNames = [''];
-        
-        
+
+
         //get courses names
         for (i = $scope.courses.length ; i > 0 ; i--) {
 
             $scope.coursesNames[$scope.coursesNames.length + 1] = $scope.courses[i - 1].Name;
-               }
+        }
         //getv studneet names
-          
 
-          
-        
+
+
+
     }
     $scope.loadsugs = function () {
-        
+
         $scope.studentsNames = [''];
-      
+
         //getv studneet names
         for (i = $scope.students.length ; i > 0 ; i--) {
 
             $scope.studentsNames[$scope.studentsNames.length + 1] = $scope.students[i - 1].Name;
-           
-        }
-            
-          
 
-            
+        }
+
+
+
+
     }
     //
 
 
-    var c, b = 1;
-
+    var b = 1;
+    var c = 1;
 
     //form submition
     $scope.submit = function (Des) {
 
-       // if (vcRecaptchaService.getResponse() === "") { //if string is empty
-       //     alert("Please resolve the captcha and submit!")
-       // } else {
+        // if (vcRecaptchaService.getResponse() === "") { //if string is empty
+        //     alert("Please resolve the captcha and submit!")
+        // } else {
         //post new course
 
         if (Des == "Cours") {
@@ -169,10 +169,10 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
                 }, function errorCallback(response) {
                     // called asynchronously if an error occurs
                     // or server returns response with an error status.
-                    $scope.errorPostCourse = "something went wrong .. please check if the entry already exist or wrong data";
+                    $scope.errorPostCourse = "something went wrong .. entry already exist";
                 });
 
-                    
+
 
             }
         }
@@ -216,10 +216,10 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
         }
         //
 
-        
+
         //get course/id
         if (Des == "VCours") {
-        
+
             Des = "Cours";
             if ($scope.coursetoEdit) {
                 for (i = $scope.courses.length ; i > 0 ; i--) {
@@ -237,12 +237,12 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
                     $scope.Sstudents = $scope.Vcourse.Students;
 
                 });
-                if (b == 1){
+                if (b == 1) {
                     $('#showcours').toggle('slow');
-                    b=0;
+                    b = 0;
                 }
             }
-            
+
         }//
 
         // post new student
@@ -302,7 +302,7 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
 
         //get student/id
         if (Des == "VStudents") {
-          
+
             Des = "Students";
             if ($scope.studenttoEdit) {
                 for (i = $scope.students.length ; i > 0 ; i--) {
@@ -324,13 +324,14 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
                     $('#showstudent').toggle('slow');
                     c = 0;
                 }
-                    //}
+                //}
+            }
+            //
+
+
+
         }
-        //
-           
-
-
-    }}
+    }
 
 });
 
