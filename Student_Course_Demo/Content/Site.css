@@ -10,35 +10,35 @@ body {
     padding: 15px;
 }
 
-.header img {
-    display: inline-block;
-}
+    .header img {
+        display: inline-block;
+    }
 
-.header h1 {
-    display: inline-block;
-}
+    .header h1 {
+        display: inline-block;
+    }
 
 .main {
     background-color: #f2f2f2;
     padding: 40px 0;
 }
 
-.main h1 {
-    color: #F65A5B;
-    font-size: 64px;
-    margin: 0 0 80px 0;
-    padding: 20px 0;
-    line-height: 60px;
-    width: 50%;
-}
+    .main h1 {
+        color: #F65A5B;
+        font-size: 64px;
+        margin: 0 0 80px 0;
+        padding: 20px 0;
+        line-height: 60px;
+        width: 50%;
+    }
 
-.main h2 {
-    background-color: #DDDDDD;
-    color: #999999;
-    font-size: 20px;
-    margin: 0 0 40px 0;
-    padding: 20px 0;
-}
+    .main h2 {
+        background-color: #DDDDDD;
+        color: #999999;
+        font-size: 20px;
+        margin: 0 0 40px 0;
+        padding: 20px 0;
+    }
 
 .thumbnail {
     border: 0px;
@@ -48,11 +48,11 @@ body {
     margin-bottom: 50px;
 }
 
-.thumbnail img {
-    margin-top: 10px;
-    margin-bottom: 30px;
-    max-width: 100%;
-}
+    .thumbnail img {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        max-width: 100%;
+    }
 
 .title,
 .date {
@@ -110,23 +110,76 @@ body {
     transition: background 500ms;
 }
 
-.likes:hover,
-.dislikes:hover {
-    color: #F65A5B;
-    background: rgba(246, 90, 91, 0.25);
-    transition: background 500ms;
-}
+    .likes:hover,
+    .dislikes:hover {
+        color: #F65A5B;
+        background: rgba(246, 90, 91, 0.25);
+        transition: background 500ms;
+    }
 
 .footer {
     text-align: center;
     margin: 80px 0 110px;
 }
 
-.footer h2 {
-    font-size: 24px;
-    margin-bottom: 25px;
+    .footer h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .footer img {
+        margin: 0 10px;
+    }
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid black;
+}
+/* AUTOCOMPLETE */
+
+.autocomplete {
+    width: 100%;
+    position: relative;
 }
 
-.footer img {
-    margin: 0 10px;
-}
+    .autocomplete input {
+        font-size: 1.2em;
+        width: 100%;
+        padding: 0.4em;
+    }
+
+    .autocomplete ul {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        border-left: 1px solid #888;
+        border-right: 1px solid #888;
+        border-bottom: 1px solid #888;
+        z-index: 1;
+        background-color: white;
+        padding: 0;
+    }
+
+    .autocomplete li {
+        text-align: left;
+        list-style: none;
+        width: 100%;
+        padding: 0.4em;
+        background-color: #fff;
+    }
+
+        .autocomplete li.active {
+            width: 100%;
+            background-color: #4bf;
+        }
+
+    .autocomplete .highlight {
+        background-color: #E2E2E2;
+    }
+
+    .autocomplete li.active .highlight {
+        background: #666;
+        color: #fff;
+    }

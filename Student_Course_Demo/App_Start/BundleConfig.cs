@@ -30,9 +30,11 @@ namespace Student_Course_Demo
                    "~/Scripts/angular/angular.min.js",
                    "~/Scripts/angular/angular-route.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/angularm").Include(
-                   "~/Scripts/angular/angular-mocks.js"));
+                   "~/Scripts/angular/angular-mocks.js",
+                   "~/Scripts/angular/angular-recaptcha.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/apicall").Include(
-                   "~/Scripts/controller/ApiCallService.js"));
+                   "~/Scripts/controller/ApiCallService.js",
+                   "~/Scripts/angular/angular-recaptcha.js"));
             
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap/bootstrap.css",

@@ -2,11 +2,11 @@ Create table Students
 (
    
     Id int primary key NOT NULL  identity,
-    Name nvarchar(50) ,
+    Name nvarchar(30) unique,
     Gender nvarchar(10) check ( Gender in ( 'MALE', 'FEMALE' )),
-    Age int,
-    Year int,
-    
+    Age int check ( Age in ( 18,19,20,21,22,23,24 )),
+    Year int check ( Year in ( 1, 2, 3, 4, 5 )),
+   
 )
 Go
 
@@ -14,9 +14,10 @@ Create table Courses
 (
    
     Id int primary key NOT NULL  identity,
-    Name nvarchar(50) ,
+    Name nvarchar(30) unique,
+    Code nvarchar(10) unique,
     Level nvarchar(10) check ( Level in ( 'EASY', 'MEDIUM', 'HARD' )),
-    
+ 
 )
 Go
 
@@ -38,9 +39,9 @@ Insert into Students values ('Pam', 'Female', 20, 3)
 Insert into Students values ('Todd', 'Male', 22, 4)
 Go
 
-Insert into Courses values ('math', 'easy')
-Insert into Courses values ('physics', 'medium')
-Insert into Courses values ('chemistry', 'hard')
+Insert into Courses values ('math', '2A0', 'easy')
+Insert into Courses values ('physics','2B1', 'medium')
+Insert into Courses values ('chemistry','3C1', 'hard')
 Go
 
 Insert into Taking values (1, 1)

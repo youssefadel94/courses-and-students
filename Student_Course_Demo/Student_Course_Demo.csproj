@@ -179,6 +179,8 @@
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\angular\angular-mocks.js" />
+    <Content Include="scripts\angular\angular-recaptcha.js" />
+    <Content Include="scripts\angular\angular-recaptcha.min.js" />
     <Content Include="scripts\angular\angular-route.min.js" />
     <Content Include="scripts\angular\angular.min.js" />
     <Content Include="scripts\app.js" />

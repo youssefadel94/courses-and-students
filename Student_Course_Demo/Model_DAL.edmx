@@ -10,7 +10,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" />
           <Property Name="Level" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Students">
@@ -18,7 +19,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
           <Property Name="Gender" Type="nvarchar" MaxLength="10" />
           <Property Name="Age" Type="int" />
           <Property Name="Year" Type="int" />
@@ -31,7 +32,7 @@
           <Property Name="Student_Id" Type="int" Nullable="false" />
           <Property Name="Course_Id" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Taking__Course_I__1ED998B2">
+        <Association Name="FK__Taking__Course_I__6EF57B66">
           <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
           <End Role="Taking" Type="Self.Taking" Multiplicity="*" />
           <ReferentialConstraint>
@@ -43,7 +44,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Taking__Student___1DE57479">
+        <Association Name="FK__Taking__Student___6E01572D">
           <End Role="Students" Type="Self.Students" Multiplicity="1" />
           <End Role="Taking" Type="Self.Taking" Multiplicity="*" />
           <ReferentialConstraint>
@@ -59,11 +60,11 @@
           <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Taking" EntityType="Self.Taking" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Taking__Course_I__1ED998B2" Association="Self.FK__Taking__Course_I__1ED998B2">
+          <AssociationSet Name="FK__Taking__Course_I__6EF57B66" Association="Self.FK__Taking__Course_I__6EF57B66">
             <End Role="Courses" EntitySet="Courses" />
             <End Role="Taking" EntitySet="Taking" />
           </AssociationSet>
-          <AssociationSet Name="FK__Taking__Student___1DE57479" Association="Self.FK__Taking__Student___1DE57479">
+          <AssociationSet Name="FK__Taking__Student___6E01572D" Association="Self.FK__Taking__Student___6E01572D">
             <End Role="Students" EntitySet="Students" />
             <End Role="Taking" EntitySet="Taking" />
           </AssociationSet>
@@ -77,16 +78,17 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Level" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Students" Relationship="Self.Taking" FromRole="Courses" ToRole="Students" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Age" Type="Int32" />
           <Property Name="Year" Type="Int32" />
@@ -113,6 +115,7 @@
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="StudentModel.Cours">
               <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Level" ColumnName="Level" />
