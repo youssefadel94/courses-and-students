@@ -125,7 +125,7 @@ acapp.directive('autocomplete', function () {
 
             // Default atts
             scope.attrs = {
-                "placeholder": "start typing...",
+                "placeholder": "search by name...",
                 "class": "",
                 "id": "",
                 "inputclass": "",

@@ -146,7 +146,7 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
     //
 
 
-
+    var c, b = 1;
 
 
     //form submition
@@ -216,9 +216,10 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
         }
         //
 
-
+        
         //get course/id
         if (Des == "VCours") {
+        
             Des = "Cours";
             if ($scope.coursetoEdit) {
                 for (i = $scope.courses.length ; i > 0 ; i--) {
@@ -236,9 +237,12 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
                     $scope.Sstudents = $scope.Vcourse.Students;
 
                 });
-
+                if (b == 1){
+                    $('#showcours').toggle('slow');
+                    b=0;
+                }
             }
-            //$('showcours').toggle('slow');
+            
         }//
 
         // post new student
@@ -298,6 +302,7 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
 
         //get student/id
         if (Des == "VStudents") {
+          
             Des = "Students";
             if ($scope.studenttoEdit) {
                 for (i = $scope.students.length ; i > 0 ; i--) {
@@ -315,11 +320,14 @@ app.controller("MainController", function ($scope, vcRecaptchaService, $http/*, 
                     $scope.Ccourses = $scope.Vstudent.Courses;
 
                 });
-
-            //}
+                if (c == 1) {
+                    $('#showstudent').toggle('slow');
+                    c = 0;
+                }
+                    //}
         }
         //
-          //  $('showstudent').toggle('slow');
+           
 
 
     }}
