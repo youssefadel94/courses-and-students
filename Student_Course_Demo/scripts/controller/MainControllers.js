@@ -155,8 +155,8 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
         // if (vcRecaptchaService.getResponse() === "") { //if string is empty
         //     alert("Please resolve the captcha and submit!")
         // } else {
-        //post new course
 
+        //post new course
         if (Des == "Cours") {
             var res = $('#g-recaptcha-response');
             if (res.val()) {
@@ -209,7 +209,6 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
         //
 
         //assign student to course
-
         if (Des == "studenttoCours") {
             Des = "Cours";
             if ($scope.SCName && $scope.SLevel) {
@@ -267,7 +266,7 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
 
         }//
 
-        // post new student
+        //post new student
         if (Des == "Students") {
             if ($scope.SName && $scope.Gender && $scope.Year && $scope.Age) {
                 var Data = { "Name": $scope.SName, "Gender": $scope.Gender, "Age": $scope.Age, "Year": $scope.Year };
