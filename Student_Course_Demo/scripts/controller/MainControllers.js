@@ -290,7 +290,7 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
         if (Des == "SStudents") {
             Des = "Students";
             if ($scope.SSName && $scope.SGender && $scope.SYear && $scope.SAge && $scope.Vstudent.Id) {
-                var Data = { "Id": $scope.Vstudent.Id, "Name": $scope.SSName, "Gender": $scope.SGender, "Age": $scope.SAge, "Year": $scope.SYear };
+                var Data = { "Id": $scope.Vstudent.Id, "Name": $scope.SSName, "Gender": $scope.SGender, "Age": $scope.SAge, "Year": parseInt($scope.SYear.substring(1,2)) };
                 var jData = JSON.stringify(Data);
                 $http.put("/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).then(function successCallback(response) {
                     // this callback will be called asynchronously
@@ -346,7 +346,7 @@ app.controller("MainController", function ($scope, /*vcRecaptchaService,*/ $http
                     $scope.SSName = $scope.Vstudent.Name;
                     $scope.SGender = $scope.Vstudent.Gender;
                     $scope.SAge = $scope.Vstudent.Age;
-                    $scope.SYear = $scope.Vstudent.Year;
+                    $scope.SYear = "y" + $scope.Vstudent.Year;
                     $scope.Ccourses = $scope.Vstudent.Courses;
                     if (c == 1) {
                         $('#showstudent').toggle('slow');
