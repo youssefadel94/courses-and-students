@@ -1,0 +1,253 @@
+﻿
+<br><br><hr><br><br>
+<div class="row text-center">
+<a href="Home.aspx#/">Students</a>
+
+<a href="Home.aspx#/courses">Courses</a>
+    </div>
+<div class="row">
+
+ 
+
+    <div class="col-md-6" style="text-align:center;">
+        <br />
+        <h3>Show/Edit courses</h3><br />
+        <p>enter the id of the course you want to view or edit</p><br />
+    </div>
+
+
+
+    <div class="col-md-6" style="text-align:center;">
+        <br />
+        <h3>Show/Edit students</h3><br />
+        <p>enter the id of the course you want to view or edit</p><br />
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="row">
+
+
+
+
+
+    <div class="col-md-6" style="text-align: center;">
+
+
+
+
+        <!-- <input type="text" ng-autocomplete ng-model="courses" options="options" details="details" />
+        -->
+
+
+
+
+
+        <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('VCours')">
+
+            <!--<input type="text" ng-model="Id" name="Id"/>-->
+
+            <autocomplete ng-model="coursetoEdit" data="coursesNames" ng-mouseenter="loadsugc()"></autocomplete>
+
+
+            <input type="submit" class="btn btn-success" id="submit" value="View or Edit Course" />
+            <p style="color: red; text-align: center;">{{errorCourseNE}}</p>
+        </form>
+        <br /><br />
+        <div class="row" id="showcours" style="display:none;">
+            <div class="row">
+                <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('SCours')">
+
+                    <!-- ng-if="showC" <input type="text" ng-model="Id" name="Id"/>-->
+                    <input maxlength="20" required placeholder="Name" type="text" ng-model="SCName" name="Name" />
+
+                    <select required ng-model="SLevel">
+                        <option value="Hard">
+                            Hard
+                        </option>
+                        <option value="Medium">
+                            Medium
+                        </option>
+                        <option value="Easy">
+                            Easy
+                        </option>
+                    </select>
+                    <input maxlength="10" required placeholder="Code" type="text" ng-model="SCode" name="Code" />
+                    <input type="submit" class="btn btn-success" id="submit" value="Update course" />
+                    <p style="color: red; text-align: center;">{{errorCourseAT}}</p>
+                </form>
+            </div>
+            <hr /><br />
+            <div class="row">
+                <h5 style="text-align:center;">Students taking this course</h5>
+                <br /><br />
+                <table style="width: 100%;
+                       margin: auto;
+                       text-align: center;">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Id</th>
+                            <th style="text-align: center;">Name</th>
+                            <th style="text-align: center;">Gender</th>
+                            <th style="text-align: center;">Age</th>
+                            <th style="text-align: center;">Year</th>
+                            <th style="text-align: center;">Delete</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="Sstudent in Sstudents">
+                            <td>{{Sstudent.Id}}</td>
+                            <td>{{Sstudent.Name}}</td>
+                            <td>{{Sstudent.Gender}}</td>
+                            <td>{{Sstudent.Age}}</td>
+                            <td>{{Sstudent.Year}}</td>
+                            <td>
+                                <div class="btn btn-success" ng-click="delete('StudentofCours',Sstudent.Id)">
+                                    <span class="fa fa-ban">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <br /><br />
+                <div class="col-md-11 text-center" style="margin: 10px;">
+                    <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('studenttoCours')">
+
+                        <!--<input type="text" ng-model="Id" name="Id"/>-->
+                        <autocomplete ng-model="studenttoCours" data="studentsNames" ng-mouseenter="loadsugs()"></autocomplete>
+                        <p style="color: red; text-align: center;">{{errorexist}}</p>
+                        <!--<input type="text" ng-model="Id" name="Id"/>  <option ng-repeat="studentsofCours in studentsofCourses" value="{{studentsofCours.Id}}">{{studentsofCours.Name}}</option>
+                        </select>-->
+
+                        <input type="submit" class="btn btn-success" id="submit" value="add Student" />
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="col-md-6" style="text-align: center;">
+        <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('VStudents')">
+            <!--<input type="text" ng-model="Id" name="Id"/>-->
+
+            <autocomplete ng-model="studenttoEdit" data="studentsNames" ng-mouseenter="loadsugs()"></autocomplete>
+
+            <input type="submit" class="btn btn-success" id="submit" value="View or Edit student" />
+            <p style="color: red; text-align: center;">{{errorStudentNE}}</p>
+        </form>
+        <br /><br />
+        <div class="row" id="showstudent" style="display:none;">
+            <div class="row">
+                <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('SStudents')">
+                    <!-- ng-if="showS"<input type="text" ng-model="Id" name="Id"/>-->
+                    <input maxlength="20" required placeholder="Name" type="text" ng-model="SSName" name="Name" value="test" />
+                    <select required ng-model="SGender">
+                        <option value="Male">
+                            Male
+                        </option>
+                        <option value="Female">
+                            Female
+                        </option>
+                    </select>
+                    <input required min="18" max="24" placeholder="Age" type="number" ng-model="SAge" name="Age" />
+                    <select required ng-model="SYear">
+                        <option value="y1">
+                            Year 1
+                        </option>
+                        <option value="y2">
+                            Year 2
+                        </option>
+                        <option value="y3">
+                            Year 3
+                        </option>
+                        <option value="y4">
+                            Year 4
+                        </option>
+                        <option value="y5">
+                            Year 5
+                        </option>
+
+                    </select>
+                    <input type="submit" class="btn btn-success" id="submit" value="Update student" />
+                    <p style="color: red; text-align: center;">{{errorStudentAT}}</p>
+                </form>
+            </div>
+            <hr /><br />
+            <div class="row">
+                <h5 style="text-align:center;">Courses this student is taking</h5>
+                <br /><br />
+                <table style="width: 100%;
+                       margin: auto;
+                       text-align: center;">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Id</th>
+                            <th style="text-align: center;">Name</th>
+                            <th style="text-align: center;">Level</th>
+                            <th style="text-align: center;">Code</th>
+                            <th style="text-align: center;">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="Ccourse in Ccourses">
+                            <td>{{Ccourse.Id}}</td>
+                            <td>{{Ccourse.Name}}</td>
+                            <td>{{Ccourse.Level}}</td>
+                            <td>{{Ccourse.Code}}</td>
+                            <td>
+                                <div class="btn btn-success" ng-click="delete('CoursofStudent',Ccourse.Id)">
+                                    <span class="fa fa-ban">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <br /><br />
+                <div class="col-md-11 text-center" style="margin: 10px;">
+                    <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('coursetoStudent')">
+
+                        <!--<input type="text" ng-model="Id" name="Id"/>-->
+                        <autocomplete ng-model="coursetoStudent" data="coursesNames" ng-mouseenter="loadsugc()"></autocomplete>
+                        <p style="color: red; text-align: center;">{{errorsexist}}</p>
+                        <!--<input type="text" ng-model="Id" name="Id"/>  <option ng-repeat="studentsofCours in studentsofCourses" value="{{studentsofCours.Id}}">{{studentsofCours.Name}}</option>
+                        </select>-->
+
+                        <input type="submit" class="btn btn-success" id="submit" value="add Course" />
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

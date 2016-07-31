@@ -1,0 +1,77 @@
+﻿
+<br><br><hr><br><br>
+
+<div class="row text-center">
+    <a href="Home.aspx#/">Students</a>
+
+    <a href="Home.aspx#/edit">Edit</a>
+</div>
+<div class="row">
+    
+
+    <div class="col-md-12" style="text-align:center;">
+        <br />
+        <h2>Courses</h2>
+        <br /><br />
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table style="width: 100%;
+                       margin: auto;
+                       text-align: center;">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Id</th>
+                    <th style="text-align: center;">Name</th>
+                    <th style="text-align: center;">Level</th>
+                    <th style="text-align: center;">Code</th>
+                    <th style="text-align: center;">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="course in courses">
+                    <td>{{course.Id}}</td>
+                    <td>{{course.Name}}</td>
+                    <td>{{course.Level}}</td>
+                    <td>{{course.Code}}</td>
+                    <td>
+                        <div class="btn btn-success" ng-click="delete('Cours',course.Id)">
+                            <span class="fa fa-ban">
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <form style="text-align: center;margin:auto;" ng-submit="submit('Cours')">
+
+            <!--<input type="text" ng-model="Id" name="Id"/>-->
+            <input required placeholder="Name" type="text" ng-model="CName" name="Name" maxlength="20" />
+            <select required ng-model="Level">
+                <option value="Hard">
+                    Hard
+                </option>
+                <option value="Medium">
+                    Medium
+                </option>
+                <option value="Easy">
+                    Easy
+                </option>
+            </select>
+            <input maxlength="10" required placeholder="Code" type="text" ng-model="Code" name="Code" />
+
+            <input type="submit" value="Submit" class="btn btn-success" id="submit" value="Add course" />
+
+            <div style="width: 25%;margin: auto;" class="g-recaptcha" data-sitekey="6LdOHiYTAAAAANHI1yZrqsGsniH-o1kTWxWkJmrn"></div>
+
+        </form>
+        <p style="color: red; text-align: center;">{{errorPostCourse}}</p>
+    </div>
+
+
+
+
+</div>

@@ -16,11 +16,12 @@ namespace webAPI.controllers
 {
     public class StudentsController : ApiController
     {
-        private webAPIContext db = new webAPIContext();
+        //private webAPIContext db = new webAPIContext();
 
         // GET: api/Students
         public IQueryable<Student> GetStudents()
         {
+            StudentEntities db = new StudentEntities();
             return db.Students;
         }
 
@@ -28,6 +29,7 @@ namespace webAPI.controllers
         [ResponseType(typeof(Student))]
         public async Task<IHttpActionResult> GetStudent(int id)
         {
+            StudentEntities db = new StudentEntities();
             Student student = await db.Students.FindAsync(id);
             if (student == null)
             {
@@ -41,6 +43,7 @@ namespace webAPI.controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutStudent(int id, Student student)
         {
+            StudentEntities db = new StudentEntities();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -56,7 +59,7 @@ namespace webAPI.controllers
             var once = true;
             foreach (var course in student.Courses)
             {
-                var s = db.Cours.FirstOrDefault(o => o.Id == course.Id);
+                var s = db.Courses.FirstOrDefault(o => o.Id == course.Id);
                 if (once)
                 {
                     dbStudent.Courses.Clear();
@@ -98,6 +101,7 @@ namespace webAPI.controllers
         [ResponseType(typeof(Student))]
         public async Task<IHttpActionResult> PostStudent(Student student)
         {
+            StudentEntities db = new StudentEntities();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -113,6 +117,7 @@ namespace webAPI.controllers
         [ResponseType(typeof(Student))]
         public async Task<IHttpActionResult> DeleteStudent(int id)
         {
+            StudentEntities db = new StudentEntities();
             Student student = await db.Students.FindAsync(id);
             if (student == null)
             {
@@ -127,6 +132,7 @@ namespace webAPI.controllers
 
         protected override void Dispose(bool disposing)
         {
+            StudentEntities db = new StudentEntities();
             if (disposing)
             {
                 db.Dispose();
@@ -136,6 +142,7 @@ namespace webAPI.controllers
 
         private bool StudentExists(int id)
         {
+            StudentEntities db = new StudentEntities();
             return db.Students.Count(e => e.Id == id) > 0;
         }
     }

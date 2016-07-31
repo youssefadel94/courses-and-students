@@ -39,6 +39,7 @@ namespace webAPI.controllers
 
         // PUT: api/Cours/5
         [ResponseType(typeof(void))]
+        [Route("api/InsertCourses/{id}/{cours}")]
         public async Task<IHttpActionResult> PutCours(int id, Cours cours)
         {
             if (!ModelState.IsValid)

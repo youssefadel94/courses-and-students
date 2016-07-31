@@ -1,0 +1,4 @@
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student.BusinessLogic\bin\Debug\Student.BusinessLogic.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student.BusinessLogic\bin\Debug\Student.BusinessLogic.pdb
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student.BusinessLogic\obj\Debug\Student.BusinessLogic.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student.BusinessLogic\obj\Debug\Student.BusinessLogic.pdb

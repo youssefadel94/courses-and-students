@@ -1,8 +1,42 @@
-var app = angular.module("mainApp", ['autocomplete'/*,'vcRecaptcha'*/]).config(['$controllerProvider',
-        function ($controllerProvider) {
-            $controllerProvider.allowGlobals();
+var app = angular.module("mainApp", ['ngRoute', 'autocomplete'])
+    .config(
+        function ($routeProvider, $controllerProvider) {
+
+
+             $controllerProvider.allowGlobals();
+
+            $routeProvider
+            .when('/students', {
+                templateUrl: 'views/students.html',
+                controller: 'studentsCtrl'
+            })
+            .when('/courses', {
+                templateUrl: 'views/courses.html',
+                controller: 'coursesCtrl'
+            })
+            .when('/view', {
+                templateUrl: 'views/edit.html',
+                controller: 'editCtrl'
+            })
+          /*  .when('/photo/:id', {
+                templateUrl: 'views/detail.html',
+                controller: 'DetailCtrl'
+            })*/
+            .otherwise('/');
+
+
         }
-]);
+);
+
+
+
+
+
+
+
+
+
+
 
 //
 /**/

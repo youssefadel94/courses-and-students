@@ -1,0 +1,107 @@
+﻿
+<br><br><hr><br><br>
+<div class="row text-center">
+    <a href="Home.aspx#/courses">Courses</a>
+
+    <a href="Home.aspx#/edit">Edit</a>
+</div>
+<div class="row" >
+   
+    <!--ng-controller="MainController"-->
+
+
+
+
+
+    <div class="row">
+
+        <div class="col-md-12" style="text-align:center;">
+            <br />
+            <h2>Students</h2>
+            <br /><br />
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table style="width: 90%;
+    margin: auto;
+    text-align: center;">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Id</th>
+                        <th style="text-align: center;">Name</th>
+                        <th style="text-align: center;">Gender</th>
+                        <th style="text-align: center;">Age</th>
+                        <th style="text-align: center;">Year</th>
+                        <th style="text-align: center;">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="student in students">
+                        <td>{{student.Id}}</td>
+                        <td>{{student.Name}}</td>
+                        <td>{{student.Gender}}</td>
+                        <td>{{student.Age}}</td>
+                        <td>{{student.Year}}</td>
+                        <td>
+                            <div class="btn btn-success" ng-click="delete('Students',student.Id)">
+                                <span class="fa fa-ban">
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <form style="text-align: center;margin:auto;" class="row" ng-submit="submit('Students')">
+                <!--<input type="text" ng-model="Id" name="Id"/>-->
+                <input maxlength="20" required placeholder="Name" type="text" ng-model="SName" name="Name" />
+
+                <select required ng-model="Gender">
+                    <option value="Male">
+                        Male
+                    </option>
+                    <option value="Female">
+                        Female
+                    </option>
+                </select>
+                <input required min="18" max="24" placeholder="Age" type="number" ng-model="Age" name="Age" />
+
+                <select required ng-model="Year">
+                    <option value="1">
+                        Year 1
+                    </option>
+                    <option value="2">
+                        Year 2
+                    </option>
+                    <option value="3">
+                        Year 3
+                    </option>
+                    <option value="4">
+                        Year 4
+                    </option>
+                    <option value="5">
+                        Year 5
+                    </option>
+
+                </select>
+                <input type="submit" class="btn btn-success" id="submit" value="Add student" />
+
+            </form>
+            <p style="color: red; text-align: center;">{{errorPostStudent}}</p>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+</div>

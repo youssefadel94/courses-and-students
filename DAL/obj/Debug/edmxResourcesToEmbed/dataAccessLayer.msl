@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Courses">
       <EntityTypeMapping TypeName="StudentModel.Cours">
         <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Level" ColumnName="Level" />
