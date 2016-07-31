@@ -1,6 +1,6 @@
 ﻿app.controller("editCtrl", function ($scope, /*vcRecaptchaService,*/ $http/*, ApiCall*/) {
     // get courses
-    $http.get("/api/Cours")
+    $http.get("http://localhost:31965/api/Cours")
          .then(function (response) {
              $scope.courses = response.data;
 
@@ -8,7 +8,7 @@
 
 
     //get students
-    $http.get("/api/Students")
+    $http.get("http://localhost:31965/api/Students")
         .then(function (response) {
             $scope.students = response.data;
 
@@ -19,7 +19,7 @@
 
         //refresh students scope
         if (Des == "Students") {
-            $http.get("/api/Students")
+            $http.get("http://localhost:31965/api/Students")
    .then(function (response) {
        $scope.students = response.data;
 
@@ -28,7 +28,7 @@
 
         //refresh corse scope
         if (Des == "Cours") {
-            $http.get("/api/Cours")
+            $http.get("http://localhost:31965/api/Cours")
  .then(function (response) {
      $scope.courses = response.data;
 
@@ -61,7 +61,7 @@
 
                 var jData = $scope.Vcourse;
 
-                $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
+                $http.put("http://localhost:31965/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
                     Refresh(Des);
                 });
 
@@ -91,7 +91,7 @@
 
                 var jData = $scope.Vstudent;
 
-                $http.put("/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).success(function (DataR) {
+                $http.put("http://localhost:31965/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).success(function (DataR) {
                     Refresh(Des);
                 });
 
@@ -160,7 +160,7 @@
             if ($scope.SCName && $scope.SLevel && $scope.Vcourse.Id) {
                 var Data = { "Id": $scope.Vcourse.Id, "Name": $scope.SCName, "Level": $scope.SLevel, "Code": $scope.SCode };
                 var jData = JSON.stringify(Data);
-                $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).then(function successCallback(response) {
+                $http.put("http://localhost:31965/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).then(function successCallback(response) {
                     // this callback will be called asynchronously
                     // when the response is available
                     Refresh(Des);
@@ -191,7 +191,7 @@
                 $scope.Vcourse.Students[$scope.Vcourse.Students.length] = $scope.studenttoadd;
                 var jData = $scope.Vcourse;
 
-                $http.put("/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
+                $http.put("http://localhost:31965/api/" + Des + "/" + $scope.Vcourse.Id, jData, []).success(function (DataR) {
                     Refresh(Des);
                 });
 
@@ -213,7 +213,7 @@
                     }
                 }
 
-                $http.get("/api/" + Des + "/" + $scope.CId).then(function successCallback(response) {
+                $http.get("http://localhost:31965/api/" + Des + "/" + $scope.CId).then(function successCallback(response) {
                     $scope.Vcourse = response.data;
                     $scope.SCName = $scope.Vcourse.Name;
                     $scope.SLevel = $scope.Vcourse.Level;
@@ -243,7 +243,7 @@
             if ($scope.SSName && $scope.SGender && $scope.SYear && $scope.SAge && $scope.Vstudent.Id) {
                 var Data = { "Id": $scope.Vstudent.Id, "Name": $scope.SSName, "Gender": $scope.SGender, "Age": $scope.SAge, "Year": parseInt($scope.SYear.substring(1, 2)) };
                 var jData = JSON.stringify(Data);
-                $http.put("/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).then(function successCallback(response) {
+                $http.put("http://localhost:31965/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).then(function successCallback(response) {
                     // this callback will be called asynchronously
                     // when the response is available
                     Refresh(Des);
@@ -271,7 +271,7 @@
                 $scope.Vstudent.Courses[$scope.Vstudent.Courses.length] = $scope.studenttoadd;
                 var jData = $scope.Vstudent;
 
-                $http.put("/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).success(function (DataR) {
+                $http.put("http://localhost:31965/api/" + Des + "/" + $scope.Vstudent.Id, jData, []).success(function (DataR) {
                     Refresh(Des);
                 });
 
@@ -292,7 +292,7 @@
                         $scope.SId = $scope.students[i - 1].Id;
                     }
                 }
-                $http.get("/api/" + Des + "/" + $scope.SId).then(function successCallback(response) {
+                $http.get("http://localhost:31965/api/" + Des + "/" + $scope.SId).then(function successCallback(response) {
                     $scope.Vstudent = response.data;
                     $scope.SSName = $scope.Vstudent.Name;
                     $scope.SGender = $scope.Vstudent.Gender;
