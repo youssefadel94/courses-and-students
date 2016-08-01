@@ -45,3 +45,11 @@ C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\obj\Debug\Student.WebAPI.csprojResolveAssemblyReference.cache
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\obj\Debug\webAPI.dll
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\obj\Debug\webAPI.pdb
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\Microsoft.Owin.Cors.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\Microsoft.Owin.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\Owin.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\System.Web.Cors.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\System.Web.Http.Cors.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\Microsoft.Owin.xml
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\Microsoft.Owin.Cors.xml
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\System.Web.Http.Cors.xml

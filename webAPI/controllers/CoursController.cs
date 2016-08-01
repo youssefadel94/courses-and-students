@@ -11,24 +11,26 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using DAL;
 using webAPI.Models;
+using System.Web.Http.Cors;
 
 namespace webAPI.controllers
 {
+    [EnableCors(origins: "http://localhost:63396", headers: "*", methods: "*")]
     public class CoursController : ApiController
     {
-        private webAPIContext db = new webAPIContext();
+        private StudentEntities db = new StudentEntities();
 
         // GET: api/Cours
         public IQueryable<Cours> GetCours()
         {
-            return db.Cours;
+            return db.Courses;
         }
 
         // GET: api/Cours/5
         [ResponseType(typeof(Cours))]
         public async Task<IHttpActionResult> GetCours(int id)
         {
-            Cours cours = await db.Cours.FindAsync(id);
+            Cours cours = await db.Courses.FindAsync(id);
             if (cours == null)
             {
                 return NotFound();
@@ -52,7 +54,7 @@ namespace webAPI.controllers
                 return BadRequest();
             }
 
-            var dbCours = db.Cours.FirstOrDefault(o => o.Id == cours.Id);
+            var dbCours = db.Courses.FirstOrDefault(o => o.Id == cours.Id);
 
             var once = true;
             foreach (var student in cours.Students)
@@ -102,7 +104,7 @@ namespace webAPI.controllers
                 return BadRequest(ModelState);
             }
 
-            db.Cours.Add(cours);
+            db.Courses.Add(cours);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = cours.Id }, cours);
@@ -112,13 +114,13 @@ namespace webAPI.controllers
         [ResponseType(typeof(Cours))]
         public async Task<IHttpActionResult> DeleteCours(int id)
         {
-            Cours cours = await db.Cours.FindAsync(id);
+            Cours cours = await db.Courses.FindAsync(id);
             if (cours == null)
             {
                 return NotFound();
             }
 
-            db.Cours.Remove(cours);
+            db.Courses.Remove(cours);
             await db.SaveChangesAsync();
 
             return Ok(cours);
@@ -135,7 +137,7 @@ namespace webAPI.controllers
 
         private bool CoursExists(int id)
         {
-            return db.Cours.Count(e => e.Id == id) > 0;
+            return db.Courses.Count(e => e.Id == id) > 0;
         }
     }
 }

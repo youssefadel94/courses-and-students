@@ -11,17 +11,19 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using DAL;
 using webAPI.Models;
+using System.Web.Http.Cors;
 
 namespace webAPI.controllers
 {
+    [EnableCors(origins: "http://localhost:63396", headers: "*", methods: "*")]
     public class StudentsController : ApiController
     {
-        //private webAPIContext db = new webAPIContext();
+       private StudentEntities db = new StudentEntities();
 
         // GET: api/Students
         public IQueryable<Student> GetStudents()
         {
-            StudentEntities db = new StudentEntities();
+            
             return db.Students;
         }
 
@@ -29,7 +31,7 @@ namespace webAPI.controllers
         [ResponseType(typeof(Student))]
         public async Task<IHttpActionResult> GetStudent(int id)
         {
-            StudentEntities db = new StudentEntities();
+         
             Student student = await db.Students.FindAsync(id);
             if (student == null)
             {
