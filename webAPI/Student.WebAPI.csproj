@@ -167,13 +167,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{91a7bfff-02be-4c64-af40-38dae2bab1d9}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\Student.DataAccess.csproj">
       <Project>{7208c40f-6334-41a4-822a-9ac0d3d0eb35}</Project>
       <Name>Student.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Student.BusinessLogic\Student.BusinessLogic.csproj">
-      <Project>{673165c6-3d4d-4202-86bd-181bb0609422}</Project>
-      <Name>Student.BusinessLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -34,4 +34,3 @@ C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\DAL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\DAL\obj\Debug\DAL.dll
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\DAL\obj\Debug\DAL.pdb
-C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\DAL\obj\Debug\Student.DataAccess.csprojResolveAssemblyReference.cache

@@ -53,3 +53,5 @@ C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\Microsoft.Owin.xml
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\Microsoft.Owin.Cors.xml
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\webAPI\bin\System.Web.Http.Cors.xml
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\webAPI\bin\BusinessLogic.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\webAPI\bin\BusinessLogic.pdb

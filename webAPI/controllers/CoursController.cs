@@ -12,25 +12,29 @@ using System.Web.Http.Description;
 using DAL;
 using webAPI.Models;
 using System.Web.Http.Cors;
+using BusinessLogic.Managers;
+using BusinessLogic;
+
 
 namespace webAPI.controllers
 {
     [EnableCors(origins: "http://localhost:63396", headers: "*", methods: "*")]
     public class CoursController : ApiController
     {
-        private StudentEntities db = new StudentEntities();
-
+      // private StudentEntities db = new StudentEntities();
+        private CoursesManager manager = new CoursesManager();
+           
         // GET: api/Cours
         public IQueryable<Cours> GetCours()
         {
-            return db.Courses;
+            return manager.GetCourses();  
         }
 
         // GET: api/Cours/5
         [ResponseType(typeof(Cours))]
         public async Task<IHttpActionResult> GetCours(int id)
         {
-            Cours cours = await db.Courses.FindAsync(id);
+            Cours cours = await manager.GetCours(id);
             if (cours == null)
             {
                 return NotFound();
@@ -54,31 +58,11 @@ namespace webAPI.controllers
                 return BadRequest();
             }
 
-            var dbCours = db.Courses.FirstOrDefault(o => o.Id == cours.Id);
-
-            var once = true;
-            foreach (var student in cours.Students)
-            {
-
-                var s = db.Students.FirstOrDefault(o => o.Id == student.Id);
-                if (once)
-                {
-                    dbCours.Students.Clear();
-                    once = false;
-                }
-                dbCours.Students.Add(s);
-
-            }
-
-            dbCours.Name = cours.Name;
-            dbCours.Level = cours.Level;
-            //dbCours.Students = cours.Students;
-
-            db.Entry(dbCours).State = EntityState.Modified;
+           // int result = 0;
 
             try
             {
-                await db.SaveChangesAsync();
+              await manager.PutCours( cours);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -91,8 +75,9 @@ namespace webAPI.controllers
                     throw;
                 }
             }
-
+ 
             return StatusCode(HttpStatusCode.NoContent);
+           
         }
 
         // POST: api/Cours
@@ -104,8 +89,7 @@ namespace webAPI.controllers
                 return BadRequest(ModelState);
             }
 
-            db.Courses.Add(cours);
-            await db.SaveChangesAsync();
+            manager.PostCours(cours);
 
             return CreatedAtRoute("DefaultApi", new { id = cours.Id }, cours);
         }
@@ -114,14 +98,13 @@ namespace webAPI.controllers
         [ResponseType(typeof(Cours))]
         public async Task<IHttpActionResult> DeleteCours(int id)
         {
-            Cours cours = await db.Courses.FindAsync(id);
+            Cours cours = await manager.DeleteCours(id);
             if (cours == null)
             {
                 return NotFound();
             }
 
-            db.Courses.Remove(cours);
-            await db.SaveChangesAsync();
+           
 
             return Ok(cours);
         }
@@ -130,14 +113,14 @@ namespace webAPI.controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                manager.Dispose();
             }
             base.Dispose(disposing);
         }
 
         private bool CoursExists(int id)
         {
-            return db.Courses.Count(e => e.Id == id) > 0;
+            return manager.CoursExists(id);
         }
     }
 }

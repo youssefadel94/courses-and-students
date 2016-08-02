@@ -58,6 +58,5 @@ C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student_Course_Demo\bin\System.Net.Http.Formatting.xml
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student_Course_Demo\bin\System.Web.Http.xml
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student_Course_Demo\bin\System.Web.Http.WebHost.xml
-C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student_Course_Demo\obj\Debug\Student.csprojResolveAssemblyReference.cache
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student_Course_Demo\obj\Debug\Student_Course_Demo.dll
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student_Course_Demo\obj\Debug\Student_Course_Demo.pdb

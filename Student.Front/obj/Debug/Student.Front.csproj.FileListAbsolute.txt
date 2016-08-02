@@ -45,3 +45,11 @@ C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student.Front\bin\System.Web.Http.WebHost.xml
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student.Front\bin\System.Net.Http.Formatting.xml
 C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\Student_Course_Demo\Student.Front\bin\Newtonsoft.Json.xml
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\Student.Front\bin\Microsoft.Owin.Cors.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\Student.Front\bin\Microsoft.Owin.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\Student.Front\bin\Owin.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\Student.Front\bin\System.Web.Cors.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\Student.Front\bin\System.Web.Http.Cors.dll
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\Student.Front\bin\Microsoft.Owin.xml
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\Student.Front\bin\Microsoft.Owin.Cors.xml
+C:\Users\youssef.hassanein\Documents\Visual Studio 2015\Projects\student_course_demo\Student.Front\bin\System.Web.Http.Cors.xml
